@@ -1,0 +1,675 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Penawaran & RAB Pengembangan Portal Berita (CMS) | iCraft Digital Services</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=JetBrains+Mono:wght@500;700&display=swap" rel="stylesheet">
+    <style>
+        body { font-family: 'Plus Jakarta Sans', sans-serif; background-color: #f1f5f9; }
+        .font-mono { font-family: 'JetBrains Mono', monospace; }
+        .icraft-blue { color: #0284c7; }
+        .bg-icraft-blue { background-color: #0284c7; }
+        .active-tab {
+            background-color: #0284c7 !important;
+            color: #ffffff !important;
+            border-color: #0284c7 !important;
+            box-shadow: 0 4px 12px rgba(2, 132, 199, 0.25);
+        }
+        @media print {
+            body { background: #fff !important; }
+            .no-print { display: none !important; }
+            .print-container { box-shadow: none !important; border: none !important; padding: 0 !important; margin: 0 !important; max-width: 100% !important; }
+            .page-break { page-break-before: always; }
+        }
+    </style>
+</head>
+<body class="antialiased text-slate-800 pb-16">
+
+    <!-- Top Action Bar (No-Print) -->
+    <div class="no-print bg-slate-900 text-slate-200 py-3 px-6 shadow-md sticky top-0 z-50">
+        <div class="max-w-5xl mx-auto flex flex-wrap items-center justify-between gap-4">
+            <div class="flex items-center gap-3">
+                <span class="w-3 h-3 rounded-full bg-emerald-400 animate-pulse"></span>
+                <span class="text-xs font-semibold tracking-wide uppercase text-slate-300">RAB Proposal Generator</span>
+                <span class="text-xs bg-slate-800 px-2.5 py-1 rounded-md text-sky-400 font-mono border border-slate-700">Versi Optimal 2026</span>
+            </div>
+            <div class="flex items-center gap-2">
+                <a href="index.html" class="px-4 py-1.5 bg-emerald-600 hover:bg-emerald-500 text-white rounded-lg text-xs font-semibold flex items-center gap-2 transition shadow">
+                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"/></svg>
+                    Lihat Demo Tampilan Prototype &rarr;
+                </a>
+                <button onclick="window.print()" class="px-4 py-1.5 bg-sky-600 hover:bg-sky-500 text-white rounded-lg text-xs font-semibold flex items-center gap-2 transition shadow">
+                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 17h2a2 2 0 002-2v-4a2 2 0 00-2-2H5a2 2 0 00-2 2v4a2 2 0 002 2h2m2 4h6a2 2 0 002-2v-4H7v4a2 2 0 002 2zm8-12V5a2 2 0 00-2-2H9a2 2 0 00-2 2v4h10z"/></svg>
+                    Cetak / Simpan PDF
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <div class="max-w-5xl mx-auto my-8 bg-white p-6 sm:p-10 shadow-xl rounded-2xl border border-slate-200 print-container">
+        
+        <!-- Header Dokumen -->
+        <header class="flex flex-col md:flex-row justify-between items-start border-b-2 border-slate-100 pb-8 mb-8 gap-6">
+            <div>
+                <div class="flex items-center gap-2">
+                    <div class="w-10 h-10 rounded-xl bg-gradient-to-tr from-sky-600 to-cyan-400 flex items-center justify-center text-white font-black text-xl shadow-md">i</div>
+                    <h1 class="text-3xl font-extrabold tracking-tight text-slate-900">i<span class="text-sky-600">Craft</span></h1>
+                </div>
+                <p class="text-sm text-slate-600 mt-2 font-semibold">iCraft Digital Services &bull; Solution Engineering</p>
+                <p class="text-xs text-slate-400">Web, Mobile Apps & Enterprise Publishing System</p>
+                <p class="text-xs text-slate-500 mt-1">Website: <a href="https://icraftds.id" class="text-sky-600 underline">www.icraftds.id</a> | Email: halo@icraftds.id</p>
+            </div>
+            <div class="text-left md:text-right bg-slate-50 md:bg-transparent p-4 md:p-0 rounded-xl border md:border-0 border-slate-200 w-full md:w-auto">
+                <span class="inline-block bg-sky-50 text-sky-700 text-xs font-bold px-3 py-1 rounded-full uppercase tracking-wider mb-2 border border-sky-200">Rencana Anggaran Biaya (RAB)</span>
+                <p class="text-xs font-mono text-slate-500">Ref: RAB/ICRAFT/2026/10-001-REV</p>
+                <p class="text-sm font-bold text-slate-800 mt-1">Proyek: Sistem Portal Berita & CMS Terintegrasi</p>
+                <p class="text-xs text-slate-500">Tanggal Penawaran: 13 Oktober 2026</p>
+                <p class="text-xs text-amber-600 font-semibold mt-1">Masa Berlaku: 30 Hari Kerja</p>
+            </div>
+        </header>
+
+        <!-- Ringkasan Penyesuaian Anggaran (Notice Box) -->
+        <div class="mb-8 p-4 bg-sky-50/70 border border-sky-100 rounded-xl text-xs text-slate-700 leading-relaxed no-print">
+            <div class="flex items-start gap-3">
+                <div class="p-1.5 bg-sky-600 text-white rounded-lg mt-0.5">
+                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+                </div>
+                <div>
+                    <strong class="text-sky-900 font-bold block text-sm">Optimasi & Perampingan Anggaran iCraft:</strong>
+                    Estimasi awal Rp 51.000.000 telah kami rampingkan hingga <strong>Rp 15.000.000 (hemat 70.5%)</strong> untuk versi Full Enterprise (setara fitur Kompas.com) melalui pemanfaatan arsitektur modular modern dan efisiensi cloud. Kami menyediakan 3 pilihan paket fleksibel: <strong>Rp 15.000.000</strong> (Full Enterprise), <strong>Rp 10.000.000</strong> (Pro/Bisnis), dan <strong>Rp 5.000.000</strong> (Starter).
+                </div>
+            </div>
+        </div>
+
+        <!-- Tab Navigasi Paket (No-Print) -->
+        <div class="no-print mb-8">
+            <label class="block text-xs font-bold text-slate-500 uppercase tracking-wider mb-3">Pilih Opsi Paket Penawaran:</label>
+            <div class="grid grid-cols-2 sm:grid-cols-4 gap-2 p-1.5 bg-slate-100 rounded-xl border border-slate-200">
+                <button id="tabBtn1" onclick="switchPackage('enterprise')" class="tab-btn active-tab px-4 py-2.5 rounded-lg text-xs font-bold transition flex flex-col items-center justify-center text-center">
+                    <span>Paket Full Enterprise</span>
+                    <span class="text-[11px] font-mono mt-0.5 opacity-90">Rp 15.000.000</span>
+                </button>
+                <button id="tabBtn2" onclick="switchPackage('pro')" class="tab-btn px-4 py-2.5 rounded-lg text-xs font-bold text-slate-600 hover:text-slate-900 transition flex flex-col items-center justify-center text-center">
+                    <span>Paket Pro / Bisnis</span>
+                    <span class="text-[11px] font-mono mt-0.5 text-slate-500">Rp 10.000.000</span>
+                </button>
+                <button id="tabBtn3" onclick="switchPackage('starter')" class="tab-btn px-4 py-2.5 rounded-lg text-xs font-bold text-slate-600 hover:text-slate-900 transition flex flex-col items-center justify-center text-center">
+                    <span>Paket Starter</span>
+                    <span class="text-[11px] font-mono mt-0.5 text-slate-500">Rp 5.000.000</span>
+                </button>
+                <button id="tabBtn4" onclick="switchPackage('comparison')" class="tab-btn px-4 py-2.5 rounded-lg text-xs font-bold text-slate-600 hover:text-slate-900 transition flex flex-col items-center justify-center text-center">
+                    <span>Matriks Perbandingan</span>
+                    <span class="text-[11px] mt-0.5 text-slate-500">Side-by-Side</span>
+                </button>
+            </div>
+        </div>
+
+        <!-- ========================================== -->
+        <!-- VIEW 1: PAKET FULL ENTERPRISE (RP 20.000.000) -->
+        <!-- ========================================== -->
+        <div id="view-enterprise" class="package-view">
+            <div class="flex flex-col md:flex-row justify-between items-start md:items-center bg-gradient-to-r from-sky-900 to-slate-900 text-white p-6 rounded-xl mb-6 shadow-md">
+                <div>
+                    <span class="bg-sky-500 text-white text-[10px] uppercase font-extrabold tracking-widest px-2.5 py-0.5 rounded-full mb-2 inline-block">Rekomendasi Utama (Full Ala Kompas.com)</span>
+                    <h2 class="text-2xl font-bold">Paket Enterprise Portal Berita</h2>
+                    <p class="text-xs text-slate-300 mt-1 max-w-xl">Portal berita skala besar dengan CMS redaksi berjenjang, kanal tak terbatas, slot monetisasi iklan agresif (Google AdSense & Direct Ads), push notification, dan server cloud high-traffic.</p>
+                </div>
+                <div class="mt-4 md:mt-0 text-left md:text-right border-t md:border-t-0 pt-4 md:pt-0 border-slate-700 w-full md:w-auto">
+                    <p class="text-xs text-slate-400 line-through">Estimasi Semula: Rp 51.000.000</p>
+                    <p class="text-3xl font-extrabold text-sky-400 font-mono">Rp 15.000.000</p>
+                    <p class="text-[11px] text-emerald-400 font-medium">Penghematan 70.5% &bull; All-in Development</p>
+                </div>
+            </div>
+
+            <!-- Tabel RAB Enterprise -->
+            <div class="overflow-x-auto rounded-xl border border-slate-200 mb-6">
+                <table class="min-w-full text-sm text-left">
+                    <thead class="bg-slate-50 text-slate-700 font-semibold border-b border-slate-200">
+                        <tr>
+                            <th class="px-5 py-3.5 w-12 text-center">No</th>
+                            <th class="px-5 py-3.5">Modul & Layanan</th>
+                            <th class="px-5 py-3.5 w-1/2">Spesifikasi Detail & Cakupan Pekerjaan</th>
+                            <th class="px-5 py-3.5 text-right w-36">Subtotal</th>
+                        </tr>
+                    </thead>
+                    <tbody class="divide-y divide-slate-100 text-slate-700">
+                        <tr class="bg-slate-50/80 font-bold text-xs uppercase tracking-wider text-slate-500">
+                            <td colspan="4" class="px-5 py-2">Fase 1: Arsitektur Sistem, UI/UX & Desain Portal</td>
+                        </tr>
+                        <tr>
+                            <td class="px-5 py-3.5 text-center font-mono text-xs">1.1</td>
+                            <td class="px-5 py-3.5 font-semibold text-slate-900">Custom UI/UX Design & Multi-Kanal Layout (Figma)</td>
+                            <td class="px-5 py-3.5 text-xs text-slate-600 leading-relaxed">
+                                &bull; Desain responsif mobile & desktop premium mirip gaya Kompas/Detik.<br>
+                                &bull; Layout Headline Utama, Breaking News Bar, Kanal Tematik (Politik, Bisnis, Tekno, Tren, dll).<br>
+                                &bull; Fitur Multi-Page Article (Halaman 1-2-3) untuk optimasi impresi iklan banner.<br>
+                                &bull; Dukungan Dark Mode otomatis & Mode Baca Nyaman (Font Resizer).
+                            </td>
+                            <td class="px-5 py-3.5 text-right font-mono font-semibold">Rp 3.500.000</td>
+                        </tr>
+
+                        <tr class="bg-slate-50/80 font-bold text-xs uppercase tracking-wider text-slate-500">
+                            <td colspan="4" class="px-5 py-2">Fase 2: Core CMS Berita & Alur Kerja Redaksi (Full Scale)</td>
+                        </tr>
+                        <tr>
+                            <td class="px-5 py-3.5 text-center font-mono text-xs">2.1</td>
+                            <td class="px-5 py-3.5 font-semibold text-slate-900">CMS Redaksi Berjenjang (Editorial Hierarchy)</td>
+                            <td class="px-5 py-3.5 text-xs text-slate-600 leading-relaxed">
+                                &bull; 5 Tingkatan Role: Pemimpin Redaksi, Redaktur Pelaksana, Editor, Reporter, Kontributor.<br>
+                                &bull; Alur Redaksi: Draft Reporter &rarr; Review Editor &rarr; Approval & Terbit Terjadwal.<br>
+                                &bull; Audit Trail Log (riwayat revisi artikel & jejak perubahan redaksi).<br>
+                                &bull; Rich Text Editor modern: Embed YouTube, Twitter/X, Instagram, Tabel, Pull-Quote.
+                            </td>
+                            <td class="px-5 py-3.5 text-right font-mono font-semibold">Rp 4.500.000</td>
+                        </tr>
+                        <tr>
+                            <td class="px-5 py-3.5 text-center font-mono text-xs">2.2</td>
+                            <td class="px-5 py-3.5 font-semibold text-slate-900">Media Assets Engine & Multi-Format Publishing</td>
+                            <td class="px-5 py-3.5 text-xs text-slate-600 leading-relaxed">
+                                &bull; Auto-Convert media ke format WebP generasi terbaru + auto-resize adaptif.<br>
+                                &bull; Fitur Auto-Watermark logo portal berita pada foto berita.<br>
+                                &bull; Format Foto Berita (Photo Story Gallery) & Liputan Khusus/Fokus Isu.<br>
+                                &bull; Live Report Module (pembaruan berita cepat bergulir per menit).
+                            </td>
+                            <td class="px-5 py-3.5 text-right font-mono font-semibold">Rp 2.000.000</td>
+                        </tr>
+
+                        <tr class="bg-slate-50/80 font-bold text-xs uppercase tracking-wider text-slate-500">
+                            <td colspan="4" class="px-5 py-2">Fase 3: Monetisasi, Interaktivitas & Engagement</td>
+                        </tr>
+                        <tr>
+                            <td class="px-5 py-3.5 text-center font-mono text-xs">3.1</td>
+                            <td class="px-5 py-3.5 font-semibold text-slate-900">Enterprise Ads Management System (Monetisasi)</td>
+                            <td class="px-5 py-3.5 text-xs text-slate-600 leading-relaxed">
+                                &bull; Penempatan Iklan Fleksibel: Top Leaderboard, In-Article, Sidebar, Floating Bottom, Skin Ad.<br>
+                                &bull; Support integrasi Google AdSense & direct banner pengiklan mandiri.<br>
+                                &bull; Pencatatan impresi (view) dan klik banner pengiklan di dashboard admin.
+                            </td>
+                            <td class="px-5 py-3.5 text-right font-mono font-semibold">Rp 1.500.000</td>
+                        </tr>
+                        <tr>
+                            <td class="px-5 py-3.5 text-center font-mono text-xs">3.2</td>
+                            <td class="px-5 py-3.5 font-semibold text-slate-900">Fitur Engagement Pembaca & Viralitas</td>
+                            <td class="px-5 py-3.5 text-xs text-slate-600 leading-relaxed">
+                                &bull; Web Push Notification (OneSignal): kirim notifikasi berita terbaru ke browser pembaca.<br>
+                                &bull; Trending Topics & Berita Terpopuler otomatis berdasarkan kunjungan.<br>
+                                &bull; Share sosial media instan (WhatsApp, Telegram, X, Facebook).<br>
+                                &bull; Kolom Komentar Interaktif + Proteksi Spam filter.
+                            </td>
+                            <td class="px-5 py-3.5 text-right font-mono font-semibold">Rp 1.000.000</td>
+                        </tr>
+
+                        <tr class="bg-slate-50/80 font-bold text-xs uppercase tracking-wider text-slate-500">
+                            <td colspan="4" class="px-5 py-2">Fase 4: Cloud Infrastructure, SEO & Keamanan</td>
+                        </tr>
+                        <tr>
+                            <td class="px-5 py-3.5 text-center font-mono text-xs">4.1</td>
+                            <td class="px-5 py-3.5 font-semibold text-slate-900">Infrastruktur Cloud VPS & Object Storage (1 Tahun)</td>
+                            <td class="px-5 py-3.5 text-xs text-slate-600 leading-relaxed">
+                                &bull; Dedicated Cloud VPS + Nginx High Concurrency + Redis Caching.<br>
+                                &bull; Storage foto terpisah (Object Storage CDN) agar server tidak lambat saat banyak pengunjung.<br>
+                                &bull; Domain pilihan (.com / .id) selama 1 tahun.<br>
+                                &bull; Setup 5 Email Profesional Organisasi Redaksi (redaksi@domain.com).
+                            </td>
+                            <td class="px-5 py-3.5 text-right font-mono font-semibold">Rp 1.500.000</td>
+                        </tr>
+                        <tr>
+                            <td class="px-5 py-3.5 text-center font-mono text-xs">4.2</td>
+                            <td class="px-5 py-3.5 font-semibold text-slate-900">Keamanan Cloudflare, Backup Otomatis & SEO Google News</td>
+                            <td class="px-5 py-3.5 text-xs text-slate-600 leading-relaxed">
+                                &bull; Cloudflare WAF, Anti-DDoS & SSL Certificate terenkripsi.<br>
+                                &bull; Automated Daily Database Backup ke penyimpanan remote terpisah (DRP).<br>
+                                &bull; Optimasi Schema.org NewsArticle, Dynamic XML Sitemap, & Google Search Console.
+                            </td>
+                            <td class="px-5 py-3.5 text-right font-mono font-semibold">Rp 1.000.000</td>
+                        </tr>
+                    </tbody>
+                    <tfoot class="bg-slate-900 text-white font-bold">
+                        <tr>
+                            <td colspan="3" class="px-5 py-4 text-right text-sm">TOTAL ESTIMASI BIAYA (PAKET ENTERPRISE):</td>
+                            <td class="px-5 py-4 text-right text-lg font-mono text-sky-400">Rp 15.000.000</td>
+                        </tr>
+                    </tfoot>
+                </table>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-4 text-xs bg-slate-50 p-4 rounded-xl border border-slate-200">
+                <div class="flex items-center gap-2">
+                    <span class="text-sky-600 font-bold">&#10003;</span>
+                    <span>Waktu Pengerjaan: <strong>25 - 35 Hari Kerja</strong></span>
+                </div>
+                <div class="flex items-center gap-2">
+                    <span class="text-sky-600 font-bold">&#10003;</span>
+                    <span>Garansi & Maintenance: <strong>3 Bulan Penuh</strong></span>
+                </div>
+                <div class="flex items-center gap-2">
+                    <span class="text-sky-600 font-bold">&#10003;</span>
+                    <span>Pelatihan: <strong>2x Sesi Training Tim Redaksi</strong></span>
+                </div>
+            </div>
+        </div>
+
+        <!-- ========================================== -->
+        <!-- VIEW 2: PAKET PRO / BISNIS (RP 10.000.000) -->
+        <!-- ========================================== -->
+        <div id="view-pro" class="package-view hidden">
+            <div class="flex flex-col md:flex-row justify-between items-start md:items-center bg-gradient-to-r from-emerald-900 to-slate-900 text-white p-6 rounded-xl mb-6 shadow-md">
+                <div>
+                    <span class="bg-emerald-500 text-white text-[10px] uppercase font-extrabold tracking-widest px-2.5 py-0.5 rounded-full mb-2 inline-block">Best Value (Media Mandiri & Daerah)</span>
+                    <h2 class="text-2xl font-bold">Paket Pro / Media Bisnis</h2>
+                    <p class="text-xs text-slate-300 mt-1 max-w-xl">Pilihan ideal untuk media berita daerah, kantor berita industri/niche, atau media independen dengan alur redaksi profesional, desain modern, dan manajemen iklan mandiri.</p>
+                </div>
+                <div class="mt-4 md:mt-0 text-left md:text-right border-t md:border-t-0 pt-4 md:pt-0 border-slate-700 w-full md:w-auto">
+                    <p class="text-3xl font-extrabold text-emerald-400 font-mono">Rp 10.000.000</p>
+                    <p class="text-[11px] text-slate-300 font-medium">Paket Komprehensif Siap Pakai</p>
+                </div>
+            </div>
+
+            <!-- Tabel RAB Pro -->
+            <div class="overflow-x-auto rounded-xl border border-slate-200 mb-6">
+                <table class="min-w-full text-sm text-left">
+                    <thead class="bg-slate-50 text-slate-700 font-semibold border-b border-slate-200">
+                        <tr>
+                            <th class="px-5 py-3.5 w-12 text-center">No</th>
+                            <th class="px-5 py-3.5">Modul & Layanan</th>
+                            <th class="px-5 py-3.5 w-1/2">Spesifikasi Detail & Cakupan Pekerjaan</th>
+                            <th class="px-5 py-3.5 text-right w-36">Subtotal</th>
+                        </tr>
+                    </thead>
+                    <tbody class="divide-y divide-slate-100 text-slate-700">
+                        <tr>
+                            <td class="px-5 py-3.5 text-center font-mono text-xs">1</td>
+                            <td class="px-5 py-3.5 font-semibold text-slate-900">Custom UI/UX Front-End Portal Berita</td>
+                            <td class="px-5 py-3.5 text-xs text-slate-600 leading-relaxed">
+                                &bull; Desain responsif mobile-friendly & clean layout ala portal berita modern.<br>
+                                &bull; Ticker bar berita terkini (Breaking News Ticker).<br>
+                                &bull; Section Berita Populer, Pilihan Editor, dan Kategori Kanal Berita.<br>
+                                &bull; Tombol Berbagi Cepat ke WhatsApp & Media Sosial.
+                            </td>
+                            <td class="px-5 py-3.5 text-right font-mono font-semibold">Rp 2.500.000</td>
+                        </tr>
+                        <tr>
+                            <td class="px-5 py-3.5 text-center font-mono text-xs">2</td>
+                            <td class="px-5 py-3.5 font-semibold text-slate-900">Core CMS Redaksi Multi-Role (3 Level)</td>
+                            <td class="px-5 py-3.5 text-xs text-slate-600 leading-relaxed">
+                                &bull; 3 Level User: Administrator, Redaktur/Editor, Wartawan/Reporter.<br>
+                                &bull; Alur Redaksi: Draft Reporter &rarr; Verifikasi Editor &rarr; Publikasi Berita.<br>
+                                &bull; WYSIWYG Editor kaya fitur: embed foto dengan caption, video YouTube.<br>
+                                &bull; Manajemen profil jurnalis & arsip artikel penulis.
+                            </td>
+                            <td class="px-5 py-3.5 text-right font-mono font-semibold">Rp 4.000.000</td>
+                        </tr>
+                        <tr>
+                            <td class="px-5 py-3.5 text-center font-mono text-xs">3</td>
+                            <td class="px-5 py-3.5 font-semibold text-slate-900">Modul Iklan Banner & Fitur Konten</td>
+                            <td class="px-5 py-3.5 text-xs text-slate-600 leading-relaxed">
+                                &bull; Slot Iklan Banner Mandiri: Header, Sidebar, dan di dalam artikel berita.<br>
+                                &bull; Fitur Berita Terkait otomatis berdasarkan tag & kategori.<br>
+                                &bull; Optimasi auto-compress gambar artikel (WebP) agar website cepat dibuka.
+                            </td>
+                            <td class="px-5 py-3.5 text-right font-mono font-semibold">Rp 1.500.000</td>
+                        </tr>
+                        <tr>
+                            <td class="px-5 py-3.5 text-center font-mono text-xs">4</td>
+                            <td class="px-5 py-3.5 font-semibold text-slate-900">Server Cloud VPS, Domain & Setup Keamanan (1 Tahun)</td>
+                            <td class="px-5 py-3.5 text-xs text-slate-600 leading-relaxed">
+                                &bull; Cloud VPS performa tinggi terkonfigurasi web engine Nginx + Caching.<br>
+                                &bull; Domain gratis 1 tahun (.com / .id) + SSL Certificate HTTPS gratis.<br>
+                                &bull; Proteksi Cloudflare CDN untuk kecepatan akses dan keamanan DDoS.
+                            </td>
+                            <td class="px-5 py-3.5 text-right font-mono font-semibold">Rp 1.200.000</td>
+                        </tr>
+                        <tr>
+                            <td class="px-5 py-3.5 text-center font-mono text-xs">5</td>
+                            <td class="px-5 py-3.5 font-semibold text-slate-900">SEO Setup, Analytics & Backup Rutin</td>
+                            <td class="px-5 py-3.5 text-xs text-slate-600 leading-relaxed">
+                                &bull; Integrasi Google Search Console & Google Analytics 4.<br>
+                                &bull; Schema Markup Berita (NewsArticle) untuk kemudahan indeks Google.<br>
+                                &bull; Setup cron job backup database mingguan otomatis.
+                            </td>
+                            <td class="px-5 py-3.5 text-right font-mono font-semibold">Rp 800.000</td>
+                        </tr>
+                    </tbody>
+                    <tfoot class="bg-slate-900 text-white font-bold">
+                        <tr>
+                            <td colspan="3" class="px-5 py-4 text-right text-sm">TOTAL ESTIMASI BIAYA (PAKET PRO):</td>
+                            <td class="px-5 py-4 text-right text-lg font-mono text-emerald-400">Rp 10.000.000</td>
+                        </tr>
+                    </tfoot>
+                </table>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-4 text-xs bg-slate-50 p-4 rounded-xl border border-slate-200">
+                <div class="flex items-center gap-2">
+                    <span class="text-emerald-600 font-bold">&#10003;</span>
+                    <span>Waktu Pengerjaan: <strong>14 - 20 Hari Kerja</strong></span>
+                </div>
+                <div class="flex items-center gap-2">
+                    <span class="text-emerald-600 font-bold">&#10003;</span>
+                    <span>Garansi & Maintenance: <strong>2 Bulan</strong></span>
+                </div>
+                <div class="flex items-center gap-2">
+                    <span class="text-emerald-600 font-bold">&#10003;</span>
+                    <span>Panduan: <strong>Online Training & Video Tutorial CMS</strong></span>
+                </div>
+            </div>
+        </div>
+
+        <!-- ========================================== -->
+        <!-- VIEW 3: PAKET STARTER (RP 5.000.000) -->
+        <!-- ========================================== -->
+        <div id="view-starter" class="package-view hidden">
+            <div class="flex flex-col md:flex-row justify-between items-start md:items-center bg-gradient-to-r from-indigo-900 to-slate-900 text-white p-6 rounded-xl mb-6 shadow-md">
+                <div>
+                    <span class="bg-indigo-500 text-white text-[10px] uppercase font-extrabold tracking-widest px-2.5 py-0.5 rounded-full mb-2 inline-block">Budget-Friendly (Media Komunitas / Baru)</span>
+                    <h2 class="text-2xl font-bold">Paket Starter / Media Dasar</h2>
+                    <p class="text-xs text-slate-300 mt-1 max-w-xl">Pilihan efisien untuk media komunitas, blog berita lembaga, portal warta kampus, atau penerbit baru yang membutuhkan portal berita fungsional dengan investasi awal minimal.</p>
+                </div>
+                <div class="mt-4 md:mt-0 text-left md:text-right border-t md:border-t-0 pt-4 md:pt-0 border-slate-700 w-full md:w-auto">
+                    <p class="text-3xl font-extrabold text-indigo-400 font-mono">Rp 5.000.000</p>
+                    <p class="text-[11px] text-slate-300 font-medium">Hemat Biaya, Cepat Online</p>
+                </div>
+            </div>
+
+            <!-- Tabel RAB Starter -->
+            <div class="overflow-x-auto rounded-xl border border-slate-200 mb-6">
+                <table class="min-w-full text-sm text-left">
+                    <thead class="bg-slate-50 text-slate-700 font-semibold border-b border-slate-200">
+                        <tr>
+                            <th class="px-5 py-3.5 w-12 text-center">No</th>
+                            <th class="px-5 py-3.5">Modul & Layanan</th>
+                            <th class="px-5 py-3.5 w-1/2">Spesifikasi Detail & Cakupan Pekerjaan</th>
+                            <th class="px-5 py-3.5 text-right w-36">Subtotal</th>
+                        </tr>
+                    </thead>
+                    <tbody class="divide-y divide-slate-100 text-slate-700">
+                        <tr>
+                            <td class="px-5 py-3.5 text-center font-mono text-xs">1</td>
+                            <td class="px-5 py-3.5 font-semibold text-slate-900">Setup Desain Tema Portal Berita Responsif</td>
+                            <td class="px-5 py-3.5 text-xs text-slate-600 leading-relaxed">
+                                &bull; Penerapan tema berita premium yang bersih, cepat dan responsif (Mobile/Desktop).<br>
+                                &bull; Konfigurasi identitas (Logo, Favicon, Kategori Kanal berita, Footer).<br>
+                                &bull; Slider Berita Utama & Grid Berita Terbaru.
+                            </td>
+                            <td class="px-5 py-3.5 text-right font-mono font-semibold">Rp 1.500.000</td>
+                        </tr>
+                        <tr>
+                            <td class="px-5 py-3.5 text-center font-mono text-xs">2</td>
+                            <td class="px-5 py-3.5 font-semibold text-slate-900">Konfigurasi CMS Berita & Manajemen Penulis</td>
+                            <td class="px-5 py-3.5 text-xs text-slate-600 leading-relaxed">
+                                &bull; 2 Level Pengguna: Administrator Utama & Penulis/Kontributor.<br>
+                                &bull; Editor Berita standar (penulisan artikel, upload foto, kategori, tagging).<br>
+                                &bull; Fitur simpan Draft dan Publikasi langsung.
+                            </td>
+                            <td class="px-5 py-3.5 text-right font-mono font-semibold">Rp 1.800.000</td>
+                        </tr>
+                        <tr>
+                            <td class="px-5 py-3.5 text-center font-mono text-xs">3</td>
+                            <td class="px-5 py-3.5 font-semibold text-slate-900">Slot Iklan Dasar & Integrasi Media Sosial</td>
+                            <td class="px-5 py-3.5 text-xs text-slate-600 leading-relaxed">
+                                &bull; 2 Slot Iklan Banner statis (Sidebar & di bawah artikel).<br>
+                                &bull; Tombol Share sosial media (WhatsApp, Facebook, Twitter/X).<br>
+                                &bull; Form kontak redaksi sederhana.
+                            </td>
+                            <td class="px-5 py-3.5 text-right font-mono font-semibold">Rp 700.000</td>
+                        </tr>
+                        <tr>
+                            <td class="px-5 py-3.5 text-center font-mono text-xs">4</td>
+                            <td class="px-5 py-3.5 font-semibold text-slate-900">Hosting CPanel, Domain & Basic SEO (1 Tahun)</td>
+                            <td class="px-5 py-3.5 text-xs text-slate-600 leading-relaxed">
+                                &bull; High Performance Cloud Hosting CPanel SSD (1 Tahun).<br>
+                                &bull; Domain gratis 1 tahun (.com / .id) + Free SSL Certificate (HTTPS).<br>
+                                &bull; Setup Google Search Console & XML Sitemap standar.
+                            </td>
+                            <td class="px-5 py-3.5 text-right font-mono font-semibold">Rp 1.000.000</td>
+                        </tr>
+                    </tbody>
+                    <tfoot class="bg-slate-900 text-white font-bold">
+                        <tr>
+                            <td colspan="3" class="px-5 py-4 text-right text-sm">TOTAL ESTIMASI BIAYA (PAKET STARTER):</td>
+                            <td class="px-5 py-4 text-right text-lg font-mono text-indigo-400">Rp 5.000.000</td>
+                        </tr>
+                    </tfoot>
+                </table>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-4 text-xs bg-slate-50 p-4 rounded-xl border border-slate-200">
+                <div class="flex items-center gap-2">
+                    <span class="text-indigo-600 font-bold">&#10003;</span>
+                    <span>Waktu Pengerjaan: <strong>7 - 10 Hari Kerja</strong></span>
+                </div>
+                <div class="flex items-center gap-2">
+                    <span class="text-indigo-600 font-bold">&#10003;</span>
+                    <span>Garansi & Maintenance: <strong>1 Bulan</strong></span>
+                </div>
+                <div class="flex items-center gap-2">
+                    <span class="text-indigo-600 font-bold">&#10003;</span>
+                    <span>Panduan: <strong>Dokumen PDF Panduan CMS</strong></span>
+                </div>
+            </div>
+        </div>
+
+        <!-- ========================================== -->
+        <!-- VIEW 4: MATRIKS PERBANDINGAN FITUR (TABEL) -->
+        <!-- ========================================== -->
+        <div id="view-comparison" class="package-view hidden">
+            <div class="border border-slate-200 rounded-xl overflow-hidden mb-6">
+                <div class="bg-slate-900 text-white p-5">
+                    <h3 class="text-lg font-bold">Matriks Perbandingan Fitur Paket Portal Berita</h3>
+                    <p class="text-xs text-slate-400">Pilih paket yang paling sesuai dengan kebutuhan traffic, kapasitas tim redaksi, dan model monetisasi media Anda.</p>
+                </div>
+                <div class="overflow-x-auto">
+                    <table class="min-w-full text-xs text-left">
+                        <thead class="bg-slate-100 text-slate-800 font-bold border-b border-slate-200">
+                            <tr>
+                                <th class="px-4 py-3.5 w-1/4">Kriteria / Fitur</th>
+                                <th class="px-4 py-3.5 w-1/4 text-center bg-indigo-50/50 text-indigo-950 border-x">
+                                    Paket Starter<br>
+                                    <span class="font-mono text-indigo-600 text-sm font-extrabold">Rp 5.000.000</span>
+                                </th>
+                                <th class="px-4 py-3.5 w-1/4 text-center bg-emerald-50/50 text-emerald-950 border-r">
+                                    Paket Pro<br>
+                                    <span class="font-mono text-emerald-600 text-sm font-extrabold">Rp 10.000.000</span>
+                                </th>
+                                <th class="px-4 py-3.5 w-1/4 text-center bg-sky-50 text-sky-950">
+                                    Paket Full Enterprise<br>
+                                    <span class="font-mono text-sky-600 text-sm font-extrabold">Rp 15.000.000</span>
+                                </th>
+                            </tr>
+                        </thead>
+                        <tbody class="divide-y divide-slate-100 text-slate-700">
+                            <tr>
+                                <td class="px-4 py-3 font-semibold text-slate-900 bg-slate-50">Kapasitas Target Klien</td>
+                                <td class="px-4 py-3 text-center border-x">Media Komunitas / Lembaga</td>
+                                <td class="px-4 py-3 text-center border-r">Media Daerah / Bisnis Niche</td>
+                                <td class="px-4 py-3 text-center font-semibold text-sky-700 bg-sky-50/30">Portal Skala Nasional / Kompas.com</td>
+                            </tr>
+                            <tr>
+                                <td class="px-4 py-3 font-semibold text-slate-900 bg-slate-50">Desain UI/UX Frontend</td>
+                                <td class="px-4 py-3 text-center border-x">Template Berita Cepat</td>
+                                <td class="px-4 py-3 text-center border-r">Semi-Custom Modern UI</td>
+                                <td class="px-4 py-3 text-center text-sky-700 font-semibold bg-sky-50/30">Full Custom Figma (Mobile & Desktop)</td>
+                            </tr>
+                            <tr>
+                                <td class="px-4 py-3 font-semibold text-slate-900 bg-slate-50">Alur Kerja Tim Redaksi</td>
+                                <td class="px-4 py-3 text-center border-x">2 Role (Admin & Penulis)</td>
+                                <td class="px-4 py-3 text-center border-r">3 Role (Admin, Editor, Reporter)</td>
+                                <td class="px-4 py-3 text-center text-sky-700 font-semibold bg-sky-50/30">5 Role Lengkap (Pemred s/d Kontributor)</td>
+                            </tr>
+                            <tr>
+                                <td class="px-4 py-3 font-semibold text-slate-900 bg-slate-50">Audit Trail / Riwayat Revisi</td>
+                                <td class="px-4 py-3 text-center text-slate-300 border-x">&mdash;</td>
+                                <td class="px-4 py-3 text-center text-slate-300 border-r">&mdash;</td>
+                                <td class="px-4 py-3 text-center text-emerald-600 font-bold bg-sky-50/30">&#10003; Lengkap (Log Tiap Edit)</td>
+                            </tr>
+                            <tr>
+                                <td class="px-4 py-3 font-semibold text-slate-900 bg-slate-50">Multi-Page Article (Halaman 1, 2, 3)</td>
+                                <td class="px-4 py-3 text-center text-slate-300 border-x">&mdash;</td>
+                                <td class="px-4 py-3 text-center text-slate-500 border-r">Standar Pagination</td>
+                                <td class="px-4 py-3 text-center text-emerald-600 font-bold bg-sky-50/30">&#10003; Ya (Gaya Kompas/Detik)</td>
+                            </tr>
+                            <tr>
+                                <td class="px-4 py-3 font-semibold text-slate-900 bg-slate-50">Monetisasi & Slot Iklan Banner</td>
+                                <td class="px-4 py-3 text-center border-x">2 Slot Banner Statis</td>
+                                <td class="px-4 py-3 text-center border-r">Banner Mandiri Dinamis (3+ Slot)</td>
+                                <td class="px-4 py-3 text-center text-sky-700 font-semibold bg-sky-50/30">Skin Ad, Popup, In-Feed, Google AdSense</td>
+                            </tr>
+                            <tr>
+                                <td class="px-4 py-3 font-semibold text-slate-900 bg-slate-50">Format Khusus (Foto Story / Live Report)</td>
+                                <td class="px-4 py-3 text-center text-slate-300 border-x">&mdash;</td>
+                                <td class="px-4 py-3 text-center border-r">Galeri Foto Standar</td>
+                                <td class="px-4 py-3 text-center text-emerald-600 font-bold bg-sky-50/30">&#10003; Live Report, Fokus Isu & Photo Story</td>
+                            </tr>
+                            <tr>
+                                <td class="px-4 py-3 font-semibold text-slate-900 bg-slate-50">Web Push Notification (OneSignal)</td>
+                                <td class="px-4 py-3 text-center text-slate-300 border-x">&mdash;</td>
+                                <td class="px-4 py-3 text-center text-slate-300 border-r">&mdash;</td>
+                                <td class="px-4 py-3 text-center text-emerald-600 font-bold bg-sky-50/30">&#10003; Siap Terintegrasi</td>
+                            </tr>
+                            <tr>
+                                <td class="px-4 py-3 font-semibold text-slate-900 bg-slate-50">Auto WebP & Auto Watermark Gambar</td>
+                                <td class="px-4 py-3 text-center text-slate-300 border-x">&mdash;</td>
+                                <td class="px-4 py-3 text-center border-r">Auto WebP Caching</td>
+                                <td class="px-4 py-3 text-center text-emerald-600 font-bold bg-sky-50/30">&#10003; Auto WebP + Auto Watermark Logo</td>
+                            </tr>
+                            <tr>
+                                <td class="px-4 py-3 font-semibold text-slate-900 bg-slate-50">Infrastruktur Server (1 Tahun)</td>
+                                <td class="px-4 py-3 text-center border-x">High Cloud Shared Hosting</td>
+                                <td class="px-4 py-3 text-center border-r">Cloud VPS Dedicated Nginx</td>
+                                <td class="px-4 py-3 text-center text-sky-700 font-semibold bg-sky-50/30">Cloud VPS High-Traffic + Object CDN</td>
+                            </tr>
+                            <tr>
+                                <td class="px-4 py-3 font-semibold text-slate-900 bg-slate-50">Masa Garansi & SLA Teknis</td>
+                                <td class="px-4 py-3 text-center border-x">1 Bulan</td>
+                                <td class="px-4 py-3 text-center border-r">2 Bulan</td>
+                                <td class="px-4 py-3 text-center font-bold text-sky-700 bg-sky-50/30">3 Bulan Prioritas</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+
+        <!-- Alasan Perampingan Biaya dari 51 Juta ke 20 Juta (Edukasi Klien) -->
+        <div class="mt-8 p-6 bg-slate-50 border border-slate-200 rounded-xl">
+            <h3 class="font-bold text-slate-900 text-sm mb-3 flex items-center gap-2">
+                <svg class="w-4 h-4 text-sky-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+                Mengapa Biaya Full Portal Dapat Dirampingkan dari Rp 51 Juta Menjadi Rp 15 Juta?
+            </h3>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-4 text-xs text-slate-600">
+                <div class="p-3 bg-white rounded-lg border border-slate-200">
+                    <p class="font-bold text-slate-800 mb-1">1. Efisiensi Core Engine</p>
+                    <p>Menggunakan basis modular portal berita modern siap kustomisasi sehingga durasi pengerjaan terpangkas dari 3 bulan menjadi 1 bulan, menekan beban *man-month* developer secara drastis.</p>
+                </div>
+                <div class="p-3 bg-white rounded-lg border border-slate-200">
+                    <p class="font-bold text-slate-800 mb-1">2. Optimasi DevOps & Cloud</p>
+                    <p>Memanfaatkan Cloudflare CDN & Serverless Caching gratis/ekonomis dibanding menyewa cluster server enterprise awal yang belum tentu terpakai penuh pada fase peluncuran.</p>
+                </div>
+                <div class="p-3 bg-white rounded-lg border border-slate-200">
+                    <p class="font-bold text-slate-800 mb-1">3. Modularitas Terfokus</p>
+                    <p>Menghilangkan fitur *overhead* yang belum mendesak di awal (seperti dual language i18n kompleks) dan memfokuskan investasi pada performa kecepatan, alur redaksi, dan slot iklan siap cuan.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Term & Conditions & Payment -->
+        <div class="mt-8 text-xs text-slate-600 space-y-4 border-t border-slate-200 pt-6">
+            <div>
+                <h3 class="font-bold text-slate-900 text-sm mb-2">Syarat & Ketentuan Kerjasama:</h3>
+                <ul class="list-disc pl-5 space-y-1.5 text-slate-600">
+                    <li>Harga penawaran bersifat *fixed cost* sesuai ruang lingkup paket yang dipilih. Penambahan fitur di luar scope akan dihitung add-on.</li>
+                    <li>Biaya domain (.com / .id) dan hosting/VPS sudah termasuk untuk <strong>1 (satu) tahun pertama</strong>. Perpanjangan tahun ke-2 dibayarkan sesuai tarif vendor cloud.</li>
+                    <li>Semua source code, database, dan hak cipta media menjadi milik Klien sepenuhnya setelah pelunasan.</li>
+                    <li>Pengerjaan dimulai selambat-lambatnya 2 (dua) hari kerja setelah pembayaran Uang Muka (DP) diterima.</li>
+                </ul>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                <div class="bg-slate-50 p-4 rounded-xl border border-slate-200">
+                    <h3 class="font-bold text-slate-900 text-sm mb-2">Skema Pembayaran Bertahap (Termin):</h3>
+                    <div class="space-y-1.5 text-xs text-slate-700">
+                        <div class="flex justify-between border-b pb-1">
+                            <span><strong>Termin 1 (DP Kick-off):</strong> 40%</span>
+                            <span class="text-slate-500">Saat penandatanganan kesepakatan</span>
+                        </div>
+                        <div class="flex justify-between border-b pb-1">
+                            <span><strong>Termin 2 (Development):</strong> 40%</span>
+                            <span class="text-slate-500">Saat demo CMS & layout selesai di staging</span>
+                        </div>
+                        <div class="flex justify-between">
+                            <span><strong>Termin 3 (Pelunasan):</strong> 20%</span>
+                            <span class="text-slate-500">Saat serah terima, go-live & handover akses</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="bg-slate-50 p-4 rounded-xl border border-slate-200">
+                    <h3 class="font-bold text-slate-900 text-sm mb-2">Rekening Resmi Pembayaran:</h3>
+                    <p class="text-xs text-slate-600 mb-1">Transfer bank dapat ditujukan ke rekening berikut:</p>
+                    <div class="p-2.5 bg-white rounded-lg border border-slate-200 text-xs font-mono space-y-0.5">
+                        <p class="font-bold text-slate-900">Bank Central Asia (BCA)</p>
+                        <p class="text-slate-700">No. Rekening: <strong class="text-sky-700">8720-XXXX-XXXX</strong></p>
+                        <p class="text-slate-600 text-[11px]">A.n: Irsyaad Fatahilah / iCraft Digital</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Tanda Tangan & Persetujuan -->
+        <div class="mt-12 pt-8 border-t border-slate-200 flex justify-between px-6 sm:px-12 text-slate-800">
+            <div class="text-center">
+                <p class="text-xs uppercase tracking-wider font-semibold text-slate-400 mb-1">Pihak Klien</p>
+                <p class="text-sm font-semibold mb-16 text-slate-800">Disetujui Oleh,</p>
+                <div class="border-b border-slate-400 w-44 mx-auto"></div>
+                <p class="text-xs mt-2 text-slate-500">( Nama Lengkap / Pimpinan )</p>
+                <p class="text-[10px] text-slate-400">Jabatan & Instansi</p>
+            </div>
+            <div class="text-center">
+                <p class="text-xs uppercase tracking-wider font-semibold text-slate-400 mb-1">Pihak Vendor</p>
+                <p class="text-sm font-semibold mb-16 text-slate-800">Diajukan Oleh,</p>
+                <div class="border-b border-slate-400 w-44 mx-auto"></div>
+                <p class="text-xs mt-2 font-bold text-slate-900">Irsyaad Fatahilah</p>
+                <p class="text-[10px] text-slate-500">Founder & Tech Lead &bull; iCraft</p>
+            </div>
+        </div>
+        
+    </div>
+
+    <!-- Script Tab Switcher -->
+    <script>
+        function switchPackage(pkg) {
+            // Hide all package views
+            const views = document.querySelectorAll('.package-view');
+            views.forEach(v => v.classList.add('hidden'));
+
+            // Deactivate all buttons
+            const buttons = document.querySelectorAll('.tab-btn');
+            buttons.forEach(b => {
+                b.classList.remove('active-tab');
+                b.classList.add('text-slate-600');
+            });
+
+            // Activate specific package
+            if (pkg === 'enterprise') {
+                document.getElementById('view-enterprise').classList.remove('hidden');
+                document.getElementById('tabBtn1').classList.add('active-tab');
+                document.getElementById('tabBtn1').classList.remove('text-slate-600');
+            } else if (pkg === 'pro') {
+                document.getElementById('view-pro').classList.remove('hidden');
+                document.getElementById('tabBtn2').classList.add('active-tab');
+                document.getElementById('tabBtn2').classList.remove('text-slate-600');
+            } else if (pkg === 'starter') {
+                document.getElementById('view-starter').classList.remove('hidden');
+                document.getElementById('tabBtn3').classList.add('active-tab');
+                document.getElementById('tabBtn3').classList.remove('text-slate-600');
+            } else if (pkg === 'comparison') {
+                document.getElementById('view-comparison').classList.remove('hidden');
+                document.getElementById('tabBtn4').classList.add('active-tab');
+                document.getElementById('tabBtn4').classList.remove('text-slate-600');
+            }
+        }
+    </script>
+</body>
+</html>

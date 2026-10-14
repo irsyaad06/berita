@@ -1,0 +1,783 @@
+<!DOCTYPE html>
+<html lang="id" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>iCraftDS - Portal Berita Nasional & Dunia Terkini | Media Prototype</title>
+    <meta name="description" content="Portal berita modern Indonesia dengan penyajian aktual, mendalam, dan terpercaya. Dilengkapi sistem CMS redaksi mandiri oleh iCraft Digital Services.">
+    
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        nusa: {
+                            50: '#f0f9ff',
+                            100: '#e0f2fe',
+                            500: '#0ea5e9',
+                            600: '#0284c7',
+                            700: '#0369a1',
+                            900: '#0c4a6e',
+                        },
+                        editorial: {
+                            red: '#e11d48',
+                            dark: '#0f172a',
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Merriweather:ital,wght@0,300;0,400;0,700;1,300&display=swap" rel="stylesheet">
+    
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body class="bg-slate-50 text-slate-800 dark:bg-slate-950 dark:text-slate-100 font-sans-modern antialiased min-h-screen flex flex-col">
+
+    <!-- Top Announcement & Switcher Bar (Demo Floating Helper) -->
+    <div class="bg-gradient-to-r from-slate-900 via-sky-950 to-slate-900 text-white text-xs py-2 px-4 border-b border-slate-800 sticky top-0 z-50">
+        <div class="max-w-7xl mx-auto flex flex-wrap items-center justify-between gap-3">
+            <div class="flex items-center gap-3">
+                <span class="bg-sky-500 text-white text-[10px] font-extrabold uppercase px-2 py-0.5 rounded tracking-wider">Prototype Demo</span>
+                <span class="hidden md:inline text-slate-300">Desain Sistem Portal Berita & CMS Multi-Role (Kompas.com Standard)</span>
+            </div>
+            <div class="flex items-center gap-2 sm:gap-4">
+                <a href="rab.html" class="text-slate-300 hover:text-white flex items-center gap-1 transition text-[11px]">
+                    <svg class="w-3.5 h-3.5 text-sky-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/></svg>
+                    Lihat Dokumen RAB
+                </a>
+                <span class="text-slate-700">|</span>
+                <a href="cms.html" class="bg-sky-600 hover:bg-sky-500 text-white font-bold px-3 py-1 rounded-md text-[11px] flex items-center gap-1.5 transition shadow">
+                    <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z"/></svg>
+                    Buka Dashboard CMS Redaksi &rarr;
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Sub-Header Info Bar (Weather, Date, Stocks) -->
+    <div class="border-b border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900 text-xs text-slate-500 dark:text-slate-400 py-1.5 px-4 hidden sm:block">
+        <div class="max-w-7xl mx-auto flex items-center justify-between">
+            <div class="flex items-center gap-4">
+                <span id="current-date" class="font-medium text-slate-700 dark:text-slate-300">Selasa, 13 Oktober 2026</span>
+                <span class="flex items-center gap-1">
+                    <svg class="w-3.5 h-3.5 text-amber-500" fill="currentColor" viewBox="0 0 20 20"><path d="M10 2a1 1 0 011 1v1a1 1 0 11-2 0V3a1 1 0 011-1zm4 8a4 4 0 11-8 0 4 4 0 018 0zm-.464 4.95l.707.707a1 1 0 001.414-1.414l-.707-.707a1 1 0 00-1.414 1.414zm2.12-10.607a1 1 0 010 1.414l-.706.707a1 1 0 11-1.414-1.414l.707-.707a1 1 0 011.414 0zM17 11a1 1 0 100-2h-1a1 1 0 100 2h1zm-7 4a1 1 0 011 1v1a1 1 0 11-2 0v-1a1 1 0 011-1zM5.05 6.464A1 1 0 106.465 5.05l-.708-.707a1 1 0 00-1.414 1.414l.707.707zm1.414 8.486l-.707.707a1 1 0 01-1.414-1.414l.707-.707a1 1 0 011.414 1.414zM4 11a1 1 0 100-2H3a1 1 0 000 2h1z"/></svg>
+                    Jakarta 31&deg;C &bull; Cerah Berawan
+                </span>
+                <span class="hidden lg:inline text-emerald-600 dark:text-emerald-400 font-mono font-semibold">IHSG 7.824,15 (+0.48%)</span>
+                <span class="hidden lg:inline text-slate-500 font-mono">USD/IDR Rp 15.650</span>
+            </div>
+            <div class="flex items-center gap-3">
+                <a href="#" class="hover:text-sky-600">E-Paper</a>
+                <span>&bull;</span>
+                <a href="#" class="hover:text-sky-600">Pedoman Media Siber</a>
+                <span>&bull;</span>
+                <button class="theme-toggle-btn p-1 rounded hover:bg-slate-100 dark:hover:bg-slate-800 transition" title="Ganti Mode Gelap/Terang">
+                    <span class="theme-icon-moon flex items-center gap-1">
+                        <svg class="w-3.5 h-3.5 text-slate-600 dark:text-slate-300" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z"/></svg>
+                        <span>Dark Mode</span>
+                    </span>
+                    <span class="theme-icon-sun hidden items-center gap-1">
+                        <svg class="w-3.5 h-3.5 text-amber-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 3v1m0 16v1m9-9h-1M4 9H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z"/></svg>
+                        <span>Light Mode</span>
+                    </span>
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Main Branding Header -->
+    <header class="bg-white dark:bg-slate-900 border-b border-slate-200 dark:border-slate-800 py-4 px-4 sm:px-8">
+        <div class="max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-between gap-4">
+            <!-- Brand Logo -->
+            <div class="flex items-center gap-4">
+                <a href="index.html" class="flex items-center gap-2 group">
+                    <div class="w-11 h-11 bg-gradient-to-tr from-sky-600 to-cyan-500 rounded-xl flex items-center justify-center text-white font-black text-xl shadow-md group-hover:scale-105 transition">
+                        iC
+                    </div>
+                    <div>
+                        <span class="text-3xl font-black tracking-tight text-slate-900 dark:text-white uppercase">iCraft<span class="text-sky-600 dark:text-sky-400">DS</span></span>
+                        <p class="text-[10px] tracking-wider font-semibold text-slate-500 dark:text-slate-400 uppercase">Jendela Kabar Indonesia & Dunia</p>
+                    </div>
+                </a>
+            </div>
+
+            <!-- Leaderboard Ad Slot (Top Header Banner Simulation) -->
+            <div class="w-full md:w-auto flex-1 max-w-xl mx-auto hidden lg:block">
+                <div class="ad-slot-box h-20 w-full p-2 text-center bg-slate-50 dark:bg-slate-800/60 border border-dashed border-slate-300 dark:border-slate-700">
+                    <span class="ad-label">Slot Iklan Banner (728x90)</span>
+                    <div class="flex items-center justify-center gap-4">
+                        <div class="text-left">
+                            <span class="text-[11px] font-bold text-sky-700 dark:text-sky-400 block">Sponsor Banner Placement</span>
+                            <span class="text-[10px] text-slate-500">Tersedia untuk Direct Advertiser & Google AdSense</span>
+                        </div>
+                        <a href="artikel.html" class="text-[10px] bg-sky-600 hover:bg-sky-500 text-white font-bold px-3 py-1.5 rounded transition">Pasang Iklan</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Action Controls (Search & User) -->
+            <div class="flex items-center gap-3 w-full md:w-auto justify-end">
+                <button class="open-search-modal flex items-center gap-2 px-3 py-2 rounded-xl bg-slate-100 hover:bg-slate-200 dark:bg-slate-800 dark:hover:bg-slate-700 text-slate-600 dark:text-slate-300 text-xs transition border border-slate-200 dark:border-slate-700">
+                    <svg class="w-4 h-4 text-slate-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"/></svg>
+                    <span>Cari Berita...</span>
+                    <kbd class="hidden sm:inline px-1.5 py-0.5 text-[9px] font-mono bg-white dark:bg-slate-900 border rounded text-slate-400">Ctrl+K</kbd>
+                </button>
+                <a href="cms.html" class="px-3.5 py-2 rounded-xl bg-slate-900 hover:bg-slate-800 text-white text-xs font-semibold flex items-center gap-1.5 dark:bg-sky-600 dark:hover:bg-sky-500 transition shadow-sm">
+                    <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"/></svg>
+                    <span>Masuk Redaksi</span>
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Sticky Navigation Category Bar -->
+    <nav class="sticky top-9 z-40 glass-nav border-b border-slate-200 dark:border-slate-800 shadow-sm">
+        <div class="max-w-7xl mx-auto px-4 sm:px-8 flex items-center justify-between overflow-x-auto no-scrollbar">
+            <div class="flex items-center space-x-1 sm:space-x-2 py-2 text-xs font-semibold whitespace-nowrap">
+                <a href="index.html" class="nav-pill-active px-3 py-1.5 rounded-lg text-sky-600">Beranda</a>
+                <a href="#nasional" class="px-3 py-1.5 rounded-lg text-slate-600 dark:text-slate-300 hover:text-sky-600 dark:hover:text-sky-400 transition">Nasional</a>
+                <a href="#bisnis" class="px-3 py-1.5 rounded-lg text-slate-600 dark:text-slate-300 hover:text-sky-600 dark:hover:text-sky-400 transition">Bisnis & Finansial</a>
+                <a href="#teknologi" class="px-3 py-1.5 rounded-lg text-slate-600 dark:text-slate-300 hover:text-sky-600 dark:hover:text-sky-400 transition">Teknologi</a>
+                <a href="#bola" class="px-3 py-1.5 rounded-lg text-slate-600 dark:text-slate-300 hover:text-sky-600 dark:hover:text-sky-400 transition">Bola & Olahraga</a>
+                <a href="#otomotif" class="px-3 py-1.5 rounded-lg text-slate-600 dark:text-slate-300 hover:text-sky-600 dark:hover:text-sky-400 transition">Otomotif</a>
+                <a href="#gaya-hidup" class="px-3 py-1.5 rounded-lg text-slate-600 dark:text-slate-300 hover:text-sky-600 dark:hover:text-sky-400 transition">Gaya Hidup</a>
+                <a href="#cek-fakta" class="px-3 py-1.5 rounded-lg text-emerald-600 dark:text-emerald-400 hover:bg-emerald-50 dark:hover:bg-emerald-950/40 transition flex items-center gap-1">
+                    <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+                    Cek Fakta
+                </a>
+                <a href="#galeri" class="px-3 py-1.5 rounded-lg text-slate-600 dark:text-slate-300 hover:text-sky-600 dark:hover:text-sky-400 transition">Foto & Video</a>
+            </div>
+            <div class="hidden xl:flex items-center pl-4 border-l border-slate-200 dark:border-slate-800 text-[11px] text-slate-500 font-medium whitespace-nowrap">
+                <span class="text-rose-600 font-bold flex items-center gap-1 mr-2">
+                    <span class="w-2 h-2 rounded-full bg-rose-600 pulse-dot"></span>
+                    Trending:
+                </span>
+                <a href="artikel.html" class="hover:text-sky-600 truncate max-w-[180px]">#PialaDunia2026</a>
+                <span class="mx-1">&bull;</span>
+                <a href="artikel.html" class="hover:text-sky-600 truncate max-w-[180px]">#AIIndonesia</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Breaking News Live Ticker Bar -->
+    <div class="bg-rose-50 dark:bg-rose-950/40 border-b border-rose-200 dark:border-rose-900/50 py-2.5 px-4" id="ticker-container">
+        <div class="max-w-7xl mx-auto flex items-center gap-3">
+            <div class="flex items-center gap-1.5 bg-rose-600 text-white text-[10px] uppercase font-black px-2.5 py-1 rounded-md flex-shrink-0 shadow-sm">
+                <span class="w-1.5 h-1.5 rounded-full bg-white pulse-dot"></span>
+                <span>BREAKING NEWS</span>
+            </div>
+            <div class="flex-1 overflow-hidden relative h-5">
+                <a id="ticker-link" href="artikel.html" class="flex items-center gap-2 group">
+                    <span id="ticker-category" class="text-[10px] font-bold text-rose-700 dark:text-rose-400 bg-rose-100 dark:bg-rose-900/60 px-2 py-0.5 rounded hidden sm:inline">Nasional</span>
+                    <span id="ticker-headline-text" class="text-xs font-semibold text-slate-800 dark:text-slate-200 group-hover:text-rose-600 dark:group-hover:text-rose-400 transition truncate">
+                        Memuat kabar terkini...
+                    </span>
+                </a>
+            </div>
+            <div class="hidden sm:flex items-center gap-1 text-slate-400 text-xs">
+                <button onclick="tickerIndex = (tickerIndex - 2 + tickerHeadlines.length) % tickerHeadlines.length; initTicker();" class="p-1 hover:text-slate-800 dark:hover:text-white" title="Sebelumnya">&larr;</button>
+                <button onclick="initTicker();" class="p-1 hover:text-slate-800 dark:hover:text-white" title="Berikutnya">&rarr;</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Main Content Layout -->
+    <main class="max-w-7xl mx-auto px-4 sm:px-8 py-8 flex-1">
+        
+        <!-- SECTION 1: HERO HEADLINE & TOP NEWS GRID (Ala Kompas.com) -->
+        <section class="grid grid-cols-1 lg:grid-cols-12 gap-8 pb-10 border-b border-slate-200 dark:border-slate-800">
+            
+            <!-- Lead Story (Col 1-7) -->
+            <div class="lg:col-span-7 flex flex-col justify-between">
+                <article class="group relative article-card-hover rounded-2xl overflow-hidden bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 shadow-sm">
+                    <div class="relative overflow-hidden aspect-[16/9] bg-slate-950">
+                        <img src="https://images.unsplash.com/photo-1526374965328-7f61d4dc18c5?auto=format&fit=crop&w=1200&q=80" 
+                             alt="Pusat Data AI Nasional" 
+                             class="card-img w-full h-full object-cover group-hover:scale-105 transition duration-500 opacity-90">
+                        <div class="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/40 to-transparent"></div>
+                        
+                        <!-- Badges -->
+                        <div class="absolute top-4 left-4 flex items-center gap-2">
+                            <span class="bg-rose-600 text-white text-[11px] font-black uppercase px-2.5 py-1 rounded-md tracking-wider shadow">
+                                LAPORAN KHUSUS
+                            </span>
+                            <span class="bg-slate-900/80 backdrop-blur text-sky-400 text-[11px] font-bold px-2.5 py-1 rounded-md border border-slate-700">
+                                TEKNOLOGI & DIGITAL
+                            </span>
+                        </div>
+
+                        <!-- Bookmark Button -->
+                        <button class="bookmark-btn absolute top-4 right-4 p-2 bg-slate-900/80 backdrop-blur rounded-full text-slate-300 hover:text-sky-400 transition border border-slate-700 shadow" title="Simpan Artikel">
+                            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 5a2 2 0 012-2h10a2 2 0 012 2v16l-7-3.5L5 21V5z"/></svg>
+                        </button>
+                    </div>
+
+                    <div class="p-6">
+                        <div class="flex items-center gap-3 text-xs text-slate-400 mb-2">
+                            <span class="text-sky-600 dark:text-sky-400 font-bold uppercase">iCraft Tekno</span>
+                            <span>&bull;</span>
+                            <span>15 Menit yang lalu</span>
+                            <span>&bull;</span>
+                            <span class="flex items-center gap-1">
+                                <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+                                4 Menit Baca
+                            </span>
+                        </div>
+
+                        <h2 class="text-2xl sm:text-3xl font-extrabold text-slate-900 dark:text-white leading-tight font-editorial group-hover:text-sky-600 dark:group-hover:text-sky-400 transition">
+                            <a href="artikel.html">
+                                Pusat Data AI Terbesar Nusantara Resmi Beroperasi: Lompatan Besar Kedaulatan Komputasi Indonesia
+                            </a>
+                        </h2>
+
+                        <p class="text-sm text-slate-600 dark:text-slate-300 mt-3 line-clamp-3 leading-relaxed">
+                            Fasilitas superkomputer ramah lingkungan berkapasitas 500 PFLOPS ini siap menopang riset kecerdasan buatan, keamanan siber instansi pemerintah, dan akselerasi transformasi ribuan startup teknologi lokal.
+                        </p>
+
+                        <div class="mt-6 pt-4 border-t border-slate-100 dark:border-slate-800 flex items-center justify-between">
+                            <div class="flex items-center gap-3">
+                                <div class="w-8 h-8 rounded-full bg-gradient-to-tr from-sky-600 to-indigo-600 text-white font-bold flex items-center justify-center text-xs">
+                                    IF
+                                </div>
+                                <div class="text-xs">
+                                    <strong class="text-slate-900 dark:text-slate-200 block">Irsyaad Fatahilah</strong>
+                                    <span class="text-slate-400">Jurnalis Investigasi Tekno</span>
+                                </div>
+                            </div>
+                            <a href="artikel.html" class="inline-flex items-center gap-1 text-xs font-bold text-sky-600 dark:text-sky-400 group-hover:translate-x-1 transition">
+                                Baca Selengkapnya &rarr;
+                            </a>
+                        </div>
+                    </div>
+                </article>
+            </div>
+
+            <!-- Side Highlights (Col 8-12: 3 Cards) -->
+            <div class="lg:col-span-5 flex flex-col justify-between space-y-4">
+                
+                <!-- Card 1 -->
+                <article class="group p-4 bg-white dark:bg-slate-900 rounded-2xl border border-slate-200 dark:border-slate-800 shadow-sm article-card-hover flex gap-4 items-center">
+                    <div class="w-28 h-24 rounded-xl overflow-hidden flex-shrink-0 relative bg-slate-900">
+                        <img src="https://images.unsplash.com/photo-1611974789855-9c2a0a7236a3?auto=format&fit=crop&w=400&q=80" 
+                             alt="IHSG Pasar Saham" 
+                             class="card-img w-full h-full object-cover">
+                    </div>
+                    <div class="flex-1 min-w-0">
+                        <div class="flex items-center gap-2 text-[11px] mb-1">
+                            <span class="font-bold text-emerald-600 dark:text-emerald-400 uppercase">Ekonomi</span>
+                            <span class="text-slate-400">&bull; 45 mnt lalu</span>
+                        </div>
+                        <h3 class="text-sm font-bold text-slate-900 dark:text-white leading-snug line-clamp-2 group-hover:text-sky-600 dark:group-hover:text-sky-400 transition">
+                            <a href="artikel.html">IHSG Tembus Rekor Baru 7.820 Terdorong Arus Masuk Modal Asing dan Kinerja Ekspor</a>
+                        </h3>
+                        <p class="text-[11px] text-slate-500 dark:text-slate-400 mt-1 flex items-center gap-2">
+                            <span>Oleh Redaksi Bisnis</span>
+                        </p>
+                    </div>
+                </article>
+
+                <!-- Card 2 -->
+                <article class="group p-4 bg-white dark:bg-slate-900 rounded-2xl border border-slate-200 dark:border-slate-800 shadow-sm article-card-hover flex gap-4 items-center">
+                    <div class="w-28 h-24 rounded-xl overflow-hidden flex-shrink-0 relative bg-slate-900">
+                        <img src="https://images.unsplash.com/photo-1508098682722-e99c43a406b2?auto=format&fit=crop&w=400&q=80" 
+                             alt="Stadion Sepak Bola" 
+                             class="card-img w-full h-full object-cover">
+                    </div>
+                    <div class="flex-1 min-w-0">
+                        <div class="flex items-center gap-2 text-[11px] mb-1">
+                            <span class="font-bold text-rose-600 uppercase">Sepak Bola</span>
+                            <span class="text-slate-400">&bull; 1 jam lalu</span>
+                        </div>
+                        <h3 class="text-sm font-bold text-slate-900 dark:text-white leading-snug line-clamp-2 group-hover:text-sky-600 dark:group-hover:text-sky-400 transition">
+                            <a href="artikel.html">Strategi Formasi Baru Timnas Sukses Jinakkan Tim Unggulan Asia di Laga Penentu</a>
+                        </h3>
+                        <p class="text-[11px] text-slate-500 dark:text-slate-400 mt-1">
+                            <span>Kualifikasi Putaran Tiga</span>
+                        </p>
+                    </div>
+                </article>
+
+                <!-- Card 3 -->
+                <article class="group p-4 bg-white dark:bg-slate-900 rounded-2xl border border-slate-200 dark:border-slate-800 shadow-sm article-card-hover flex gap-4 items-center">
+                    <div class="w-28 h-24 rounded-xl overflow-hidden flex-shrink-0 relative bg-slate-900">
+                        <img src="https://images.unsplash.com/photo-1517524008697-84bbe3c3fd98?auto=format&fit=crop&w=400&q=80" 
+                             alt="Mobil Listrik Masa Depan" 
+                             class="card-img w-full h-full object-cover">
+                    </div>
+                    <div class="flex-1 min-w-0">
+                        <div class="flex items-center gap-2 text-[11px] mb-1">
+                            <span class="font-bold text-sky-600 dark:text-sky-400 uppercase">Otomotif</span>
+                            <span class="text-slate-400">&bull; 2 jam lalu</span>
+                        </div>
+                        <h3 class="text-sm font-bold text-slate-900 dark:text-white leading-snug line-clamp-2 group-hover:text-sky-600 dark:group-hover:text-sky-400 transition">
+                            <a href="artikel.html">Pabrik Ekosistem Baterai Kendaraan Listrik Tahap Dua Mulai Beroperasi Penuh</a>
+                        </h3>
+                        <p class="text-[11px] text-slate-500 dark:text-slate-400 mt-1">
+                            <span>Investasi Hijau Ramah Emisi</span>
+                        </p>
+                    </div>
+                </article>
+
+                <!-- Sponsored Native Feed Box -->
+                <div class="p-3 bg-amber-50 dark:bg-amber-950/30 rounded-xl border border-amber-200 dark:border-amber-900/50 flex items-center justify-between text-xs">
+                    <div class="flex items-center gap-2">
+                        <span class="bg-amber-200 dark:bg-amber-900 text-amber-800 dark:text-amber-200 font-extrabold text-[9px] px-2 py-0.5 rounded uppercase">Info Khusus</span>
+                        <span class="text-slate-700 dark:text-slate-300 font-medium truncate">Simulasi Slot Monetisasi In-Feed Native Ads</span>
+                    </div>
+                    <a href="cms.html" class="text-amber-700 dark:text-amber-400 font-bold hover:underline flex-shrink-0 ml-2">Kelola di CMS &rarr;</a>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- SECTION 2: LIVE REPORT TICKER & TRENDING RANKING (2 COLS) -->
+        <section class="py-10 grid grid-cols-1 lg:grid-cols-12 gap-8 border-b border-slate-200 dark:border-slate-800">
+            
+            <!-- Left: Feed Berita Terkini Realtime (Col 1-8) -->
+            <div class="lg:col-span-8 space-y-6">
+                <div class="flex items-center justify-between border-b-2 border-slate-200 dark:border-slate-800 pb-3">
+                    <div class="flex items-center gap-3">
+                        <span class="w-3 h-3 bg-sky-600 rounded-full"></span>
+                        <h2 class="text-xl font-extrabold text-slate-900 dark:text-white uppercase tracking-tight">Kabar Terkini & Indeks Berita</h2>
+                    </div>
+                    <div class="flex items-center gap-2 text-xs">
+                        <button class="px-2.5 py-1 bg-slate-200 dark:bg-slate-800 font-bold rounded-lg text-slate-700 dark:text-slate-300">Semua</button>
+                        <button class="px-2.5 py-1 hover:bg-slate-100 dark:hover:bg-slate-800 rounded-lg text-slate-500">Populer</button>
+                        <button class="px-2.5 py-1 hover:bg-slate-100 dark:hover:bg-slate-800 rounded-lg text-slate-500">Pilihan Editor</button>
+                    </div>
+                </div>
+
+                <!-- Feed Article Items -->
+                <div class="space-y-6">
+                    
+                    <!-- Item 1 -->
+                    <article class="flex flex-col sm:flex-row gap-4 p-4 rounded-xl hover:bg-white dark:hover:bg-slate-900/60 border border-transparent hover:border-slate-200 dark:hover:border-slate-800 transition article-card-hover group">
+                        <div class="sm:w-56 aspect-[16/10] rounded-xl overflow-hidden bg-slate-900 flex-shrink-0">
+                            <img src="https://images.unsplash.com/photo-1541888946425-d0fbb186156f?auto=format&fit=crop&w=600&q=80" 
+                                 alt="Infrastruktur Kota Cerdas" 
+                                 class="card-img w-full h-full object-cover">
+                        </div>
+                        <div class="flex-1 flex flex-col justify-between">
+                            <div>
+                                <div class="flex items-center gap-2 text-xs mb-1.5">
+                                    <span class="font-bold text-sky-600 dark:text-sky-400 uppercase">Infrastruktur</span>
+                                    <span class="text-slate-400">&bull; 3 Jam yang lalu</span>
+                                </div>
+                                <h3 class="text-lg font-bold text-slate-900 dark:text-white leading-snug group-hover:text-sky-600 dark:group-hover:text-sky-400 transition font-editorial">
+                                    <a href="artikel.html">Proyek Jalur Kereta Cepat Regional Fase Dua Resmi Memasuki Tahap Pemasangan Rel Presisi</a>
+                                </h3>
+                                <p class="text-xs text-slate-600 dark:text-slate-300 mt-2 line-clamp-2 leading-relaxed">
+                                    Pemerintah memastikan target operasional komersial sesuai jadwal tanpa pembengkakan anggaran dengan melibatkan konsorsium BUMN dan teknologi sensor tanah otomatis.
+                                </p>
+                            </div>
+                            <div class="flex items-center justify-between mt-3 text-xs text-slate-400">
+                                <span>Penulis: <strong>Hendra Wibowo</strong></span>
+                                <span class="flex items-center gap-1">
+                                    <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"/></svg>
+                                    1.4k Dibaca
+                                </span>
+                            </div>
+                        </div>
+                    </article>
+
+                    <!-- Item 2 -->
+                    <article class="flex flex-col sm:flex-row gap-4 p-4 rounded-xl hover:bg-white dark:hover:bg-slate-900/60 border border-transparent hover:border-slate-200 dark:hover:border-slate-800 transition article-card-hover group">
+                        <div class="sm:w-56 aspect-[16/10] rounded-xl overflow-hidden bg-slate-900 flex-shrink-0">
+                            <img src="https://images.unsplash.com/photo-1579621970563-ebec7560ff3e?auto=format&fit=crop&w=600&q=80" 
+                                 alt="Perbankan Digital" 
+                                 class="card-img w-full h-full object-cover">
+                        </div>
+                        <div class="flex-1 flex flex-col justify-between">
+                            <div>
+                                <div class="flex items-center gap-2 text-xs mb-1.5">
+                                    <span class="font-bold text-emerald-600 dark:text-emerald-400 uppercase">Finansial</span>
+                                    <span class="text-slate-400">&bull; 4 Jam yang lalu</span>
+                                </div>
+                                <h3 class="text-lg font-bold text-slate-900 dark:text-white leading-snug group-hover:text-sky-600 dark:group-hover:text-sky-400 transition font-editorial">
+                                    <a href="artikel.html">Bank Indonesia Rilis Standar Keamanan Baru Tokenisasi Pembayaran Digital Anti-Fraud</a>
+                                </h3>
+                                <p class="text-xs text-slate-600 dark:text-slate-300 mt-2 line-clamp-2 leading-relaxed">
+                                    Ketentuan baru mewajibkan enkripsi biometrik berlapis pada seluruh penyedia dompet digital guna mencegah kebocoran transaksi keuangan daring masyarakat.
+                                </p>
+                            </div>
+                            <div class="flex items-center justify-between mt-3 text-xs text-slate-400">
+                                <span>Penulis: <strong>Siti Nurhaliza</strong></span>
+                                <span class="flex items-center gap-1">
+                                    <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"/></svg>
+                                    2.8k Dibaca
+                                </span>
+                            </div>
+                        </div>
+                    </article>
+
+                    <!-- Item 3 -->
+                    <article class="flex flex-col sm:flex-row gap-4 p-4 rounded-xl hover:bg-white dark:hover:bg-slate-900/60 border border-transparent hover:border-slate-200 dark:hover:border-slate-800 transition article-card-hover group">
+                        <div class="sm:w-56 aspect-[16/10] rounded-xl overflow-hidden bg-slate-900 flex-shrink-0">
+                            <img src="https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=600&q=80" 
+                                 alt="Mikroprosesor dan Chip" 
+                                 class="card-img w-full h-full object-cover">
+                        </div>
+                        <div class="flex-1 flex flex-col justify-between">
+                            <div>
+                                <div class="flex items-center gap-2 text-xs mb-1.5">
+                                    <span class="font-bold text-indigo-600 dark:text-indigo-400 uppercase">Sains & Riset</span>
+                                    <span class="text-slate-400">&bull; 5 Jam yang lalu</span>
+                                </div>
+                                <h3 class="text-lg font-bold text-slate-900 dark:text-white leading-snug group-hover:text-sky-600 dark:group-hover:text-sky-400 transition font-editorial">
+                                    <a href="artikel.html">Ilmuwan BRIN Kembangkan Semikonduktor Berbasis Bahan Mineral Lokal Bernilai Tambah Tinggi</a>
+                                </h3>
+                                <p class="text-xs text-slate-600 dark:text-slate-300 mt-2 line-clamp-2 leading-relaxed">
+                                    Riset hilirisasi silika berhasil mencatatkan paten prototipe wafer silikon untuk perangkat telekomunikasi generasi masa depan berdaya rendah.
+                                </p>
+                            </div>
+                            <div class="flex items-center justify-between mt-3 text-xs text-slate-400">
+                                <span>Penulis: <strong>Dr. Fajar Pratama</strong></span>
+                                <span class="flex items-center gap-1">
+                                    <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"/></svg>
+                                    920 Dibaca
+                                </span>
+                            </div>
+                        </div>
+                    </article>
+
+                </div>
+
+                <!-- Pagination Button (Khas Portal Berita) -->
+                <div class="pt-4 flex justify-center">
+                    <a href="artikel.html" class="px-6 py-2.5 bg-white dark:bg-slate-900 border border-slate-300 dark:border-slate-700 hover:border-sky-500 text-xs font-bold text-slate-700 dark:text-slate-200 rounded-xl transition shadow-sm hover:text-sky-600 flex items-center gap-2">
+                        Muat Lebih Banyak Berita &darr;
+                    </a>
+                </div>
+            </div>
+
+            <!-- Right: Trending Widget & Sidebar Ads (Col 9-12) -->
+            <div class="lg:col-span-4 space-y-6">
+                
+                <!-- TOP 5 TERPOPULER (Trending Rank Widget) -->
+                <div class="bg-white dark:bg-slate-900 p-6 rounded-2xl border border-slate-200 dark:border-slate-800 shadow-sm">
+                    <div class="flex items-center justify-between border-b border-slate-100 dark:border-slate-800 pb-3 mb-4">
+                        <h3 class="font-bold text-slate-900 dark:text-white text-sm uppercase tracking-wider flex items-center gap-2">
+                            <span class="text-rose-600 font-extrabold text-lg">#</span>
+                            BERITA TERPOPULER
+                        </h3>
+                        <span class="text-[10px] bg-slate-100 dark:bg-slate-800 text-slate-500 px-2 py-0.5 rounded font-mono">24 Jam Terakhir</span>
+                    </div>
+
+                    <div class="space-y-4">
+                        
+                        <!-- Rank 1 -->
+                        <div class="flex items-start gap-3 group">
+                            <span class="text-3xl font-black text-rose-600 dark:text-rose-500 font-mono w-6 text-center leading-none">1</span>
+                            <div class="flex-1">
+                                <span class="text-[10px] font-bold text-sky-600 dark:text-sky-400 uppercase">Teknologi</span>
+                                <h4 class="text-xs font-bold text-slate-800 dark:text-slate-200 group-hover:text-sky-600 dark:group-hover:text-sky-400 transition leading-snug">
+                                    <a href="artikel.html">Pusat Data AI Nasional Resmi Beroperasi di Jawa Barat</a>
+                                </h4>
+                                <span class="text-[10px] text-slate-400 mt-0.5 block">12.4k Pembaca</span>
+                            </div>
+                        </div>
+
+                        <!-- Rank 2 -->
+                        <div class="flex items-start gap-3 group">
+                            <span class="text-3xl font-black text-slate-400 dark:text-slate-600 font-mono w-6 text-center leading-none">2</span>
+                            <div class="flex-1">
+                                <span class="text-[10px] font-bold text-emerald-600 uppercase">Bisnis</span>
+                                <h4 class="text-xs font-bold text-slate-800 dark:text-slate-200 group-hover:text-sky-600 dark:group-hover:text-sky-400 transition leading-snug">
+                                    <a href="artikel.html">IHSG Cetak Rekor Tertinggi Sepanjang Sejarah Hari Ini</a>
+                                </h4>
+                                <span class="text-[10px] text-slate-400 mt-0.5 block">8.9k Pembaca</span>
+                            </div>
+                        </div>
+
+                        <!-- Rank 3 -->
+                        <div class="flex items-start gap-3 group">
+                            <span class="text-3xl font-black text-slate-400 dark:text-slate-600 font-mono w-6 text-center leading-none">3</span>
+                            <div class="flex-1">
+                                <span class="text-[10px] font-bold text-rose-600 uppercase">Sepak Bola</span>
+                                <h4 class="text-xs font-bold text-slate-800 dark:text-slate-200 group-hover:text-sky-600 dark:group-hover:text-sky-400 transition leading-snug">
+                                    <a href="artikel.html">Jadwal Siaran Langsung Laga Penentu Garuda Pekan Ini</a>
+                                </h4>
+                                <span class="text-[10px] text-slate-400 mt-0.5 block">7.2k Pembaca</span>
+                            </div>
+                        </div>
+
+                        <!-- Rank 4 -->
+                        <div class="flex items-start gap-3 group">
+                            <span class="text-3xl font-black text-slate-400 dark:text-slate-600 font-mono w-6 text-center leading-none">4</span>
+                            <div class="flex-1">
+                                <span class="text-[10px] font-bold text-indigo-600 uppercase">Otomotif</span>
+                                <h4 class="text-xs font-bold text-slate-800 dark:text-slate-200 group-hover:text-sky-600 dark:group-hover:text-sky-400 transition leading-snug">
+                                    <a href="artikel.html">Daftar Mobil Listrik dengan Subsidi Pemerintah 2026</a>
+                                </h4>
+                                <span class="text-[10px] text-slate-400 mt-0.5 block">5.4k Pembaca</span>
+                            </div>
+                        </div>
+
+                        <!-- Rank 5 -->
+                        <div class="flex items-start gap-3 group">
+                            <span class="text-3xl font-black text-slate-400 dark:text-slate-600 font-mono w-6 text-center leading-none">5</span>
+                            <div class="flex-1">
+                                <span class="text-[10px] font-bold text-amber-600 uppercase">Gaya Hidup</span>
+                                <h4 class="text-xs font-bold text-slate-800 dark:text-slate-200 group-hover:text-sky-600 dark:group-hover:text-sky-400 transition leading-snug">
+                                    <a href="artikel.html">Tips Menjaga Produktivitas dan Pola Tidur Pekerja Remote</a>
+                                </h4>
+                                <span class="text-[10px] text-slate-400 mt-0.5 block">4.1k Pembaca</span>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+
+                <!-- Sidebar Banner Ad Slot (300x250) -->
+                <div class="ad-slot-box h-64 p-4 text-center bg-slate-50 dark:bg-slate-900 border border-dashed border-slate-300 dark:border-slate-700">
+                    <span class="ad-label">Medium Rectangle Ad (300x250)</span>
+                    <div class="space-y-3">
+                        <div class="w-12 h-12 mx-auto rounded-xl bg-sky-100 dark:bg-sky-950 flex items-center justify-center text-sky-600">
+                            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 3.055A9.001 9.001 0 1020.945 13H11V3.055z"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20.488 9H15V3.512A9.025 9.025 0 0120.488 9z"/></svg>
+                        </div>
+                        <div>
+                            <strong class="text-xs font-bold text-slate-800 dark:text-slate-200 block">Ruang Iklan Banner Komersial</strong>
+                            <p class="text-[11px] text-slate-500 mt-0.5">Dikelola otomatis melalui modul CMS Iklan iCraft</p>
+                        </div>
+                        <a href="cms.html" class="inline-block text-[10px] bg-slate-900 dark:bg-sky-600 text-white font-bold px-3 py-1.5 rounded-lg shadow">
+                            Konfigurasi di CMS &rarr;
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Newsletter Web Push Card -->
+                <div class="p-5 bg-gradient-to-br from-sky-600 to-indigo-700 rounded-2xl text-white shadow-lg">
+                    <div class="flex items-center gap-2 mb-2">
+                        <svg class="w-5 h-5 text-amber-300" fill="currentColor" viewBox="0 0 20 20"><path d="M10 2a6 6 0 00-6 6v3.586l-.707.707A1 1 0 004 14h12a1 1 0 00.707-1.707L16 11.586V8a6 6 0 00-6-6zM10 18a3 3 0 01-3-3h6a3 3 0 01-3 3z"/></svg>
+                        <h4 class="font-bold text-sm">Notifikasi Berita Kilat</h4>
+                    </div>
+                    <p class="text-xs text-sky-100 leading-relaxed mb-4">
+                        Dapatkan kabar terkini langsung di perangkat Anda tanpa ketinggalan isu krusial nasional.
+                    </p>
+                    <form onsubmit="event.preventDefault(); showToast('Terima kasih! Notifikasi berita diaktifkan.');" class="space-y-2">
+                        <input type="email" placeholder="Ketik email Anda..." required class="w-full px-3 py-2 text-xs rounded-xl bg-white/10 border border-white/20 text-white placeholder-sky-200 focus:outline-none focus:ring-2 focus:ring-white">
+                        <button type="submit" class="w-full py-2 bg-white text-sky-700 font-bold text-xs rounded-xl hover:bg-sky-50 transition shadow">
+                            Aktifkan Berita Harian
+                        </button>
+                    </form>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- SECTION 3: MULTIMEDIA & GALERI FOTO (Full Width Dark Section) -->
+        <section class="my-10 bg-slate-900 text-white rounded-3xl p-6 sm:p-10 overflow-hidden relative" id="galeri">
+            <div class="flex flex-col md:flex-row md:items-center justify-between mb-8 gap-4">
+                <div>
+                    <span class="text-[10px] tracking-widest text-sky-400 font-bold uppercase block mb-1">Jurnalisme Visual</span>
+                    <h2 class="text-2xl font-black text-white font-editorial">Galeri Foto & Multimedia Nusantara</h2>
+                </div>
+                <div class="flex items-center gap-2">
+                    <span class="text-xs text-slate-400">Penyajian foto cerita jurnalistik beresolusi tinggi</span>
+                </div>
+            </div>
+
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+                
+                <!-- Photo 1 -->
+                <div class="group relative rounded-2xl overflow-hidden aspect-[4/5] bg-slate-800 article-card-hover cursor-pointer">
+                    <img src="https://images.unsplash.com/photo-1518495973542-4542c06a5843?auto=format&fit=crop&w=600&q=80" 
+                         alt="Cahaya Hutan Tropis" 
+                         class="card-img w-full h-full object-cover">
+                    <div class="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/20 to-transparent"></div>
+                    <div class="absolute top-3 left-3">
+                        <span class="bg-black/60 backdrop-blur text-white text-[10px] font-bold px-2 py-0.5 rounded flex items-center gap-1">
+                            <svg class="w-3 h-3 text-sky-400" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M4 3a2 2 0 00-2 2v10a2 2 0 002 2h12a2 2 0 002-2V5a2 2 0 00-2-2H4zm12 12H4l4-8 3 6 2-4 3 6z" clip-rule="evenodd"/></svg>
+                            8 FOTO
+                        </span>
+                    </div>
+                    <div class="absolute bottom-4 left-4 right-4">
+                        <span class="text-[10px] font-bold text-sky-400 uppercase">Ekologi</span>
+                        <h4 class="text-xs font-bold text-white mt-1 leading-snug group-hover:text-sky-300 transition line-clamp-2">
+                            Menjaga Denyut Jantung Hutan Tropis Terakhir di Pulau Kalimantan
+                        </h4>
+                        <p class="text-[10px] text-slate-400 mt-1">Foto: Tim Dok. Jurnalistik</p>
+                    </div>
+                </div>
+
+                <!-- Photo 2 -->
+                <div class="group relative rounded-2xl overflow-hidden aspect-[4/5] bg-slate-800 article-card-hover cursor-pointer">
+                    <img src="https://images.unsplash.com/photo-1477959858617-67f30bc75b82?auto=format&fit=crop&w=600&q=80" 
+                         alt="Cakrawala Megapolitan" 
+                         class="card-img w-full h-full object-cover">
+                    <div class="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/20 to-transparent"></div>
+                    <div class="absolute top-3 left-3">
+                        <span class="bg-black/60 backdrop-blur text-white text-[10px] font-bold px-2 py-0.5 rounded flex items-center gap-1">
+                            <svg class="w-3 h-3 text-sky-400" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M4 3a2 2 0 00-2 2v10a2 2 0 002 2h12a2 2 0 002-2V5a2 2 0 00-2-2H4zm12 12H4l4-8 3 6 2-4 3 6z" clip-rule="evenodd"/></svg>
+                            12 FOTO
+                        </span>
+                    </div>
+                    <div class="absolute bottom-4 left-4 right-4">
+                        <span class="text-[10px] font-bold text-emerald-400 uppercase">Urban</span>
+                        <h4 class="text-xs font-bold text-white mt-1 leading-snug group-hover:text-sky-300 transition line-clamp-2">
+                            Wajah Modern Transportasi Terintegrasi Membelah Hiruk Pikuk Ibu Kota
+                        </h4>
+                        <p class="text-[10px] text-slate-400 mt-1">Foto: Antara/iCraftDS</p>
+                    </div>
+                </div>
+
+                <!-- Photo 3 -->
+                <div class="group relative rounded-2xl overflow-hidden aspect-[4/5] bg-slate-800 article-card-hover cursor-pointer">
+                    <img src="https://images.unsplash.com/photo-1461896836934-ffe607ba8211?auto=format&fit=crop&w=600&q=80" 
+                         alt="Semangat Atletik" 
+                         class="card-img w-full h-full object-cover">
+                    <div class="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/20 to-transparent"></div>
+                    <div class="absolute top-3 left-3">
+                        <span class="bg-black/60 backdrop-blur text-white text-[10px] font-bold px-2 py-0.5 rounded flex items-center gap-1">
+                            <svg class="w-3 h-3 text-rose-400" fill="currentColor" viewBox="0 0 20 20"><path d="M10 18a8 8 0 100-16 8 8 0 000 16zM9.555 7.168A1 1 0 008 8v4a1 1 0 001.555.832l3-2a1 1 0 000-1.664l-3-2z"/></svg>
+                            VIDEO
+                        </span>
+                    </div>
+                    <div class="absolute bottom-4 left-4 right-4">
+                        <span class="text-[10px] font-bold text-rose-400 uppercase">Sport Story</span>
+                        <h4 class="text-xs font-bold text-white mt-1 leading-snug group-hover:text-sky-300 transition line-clamp-2">
+                            Di Balik Layar Latihan Spartan Atlet Menuju Panggung Internasional
+                        </h4>
+                        <p class="text-[10px] text-slate-400 mt-1">Durasi: 04:20</p>
+                    </div>
+                </div>
+
+                <!-- Photo 4 -->
+                <div class="group relative rounded-2xl overflow-hidden aspect-[4/5] bg-slate-800 article-card-hover cursor-pointer">
+                    <img src="https://images.unsplash.com/photo-1511556532299-8f662fc26c06?auto=format&fit=crop&w=600&q=80" 
+                         alt="Kesenian Tradisional" 
+                         class="card-img w-full h-full object-cover">
+                    <div class="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/20 to-transparent"></div>
+                    <div class="absolute top-3 left-3">
+                        <span class="bg-black/60 backdrop-blur text-white text-[10px] font-bold px-2 py-0.5 rounded flex items-center gap-1">
+                            <svg class="w-3 h-3 text-sky-400" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M4 3a2 2 0 00-2 2v10a2 2 0 002 2h12a2 2 0 002-2V5a2 2 0 00-2-2H4zm12 12H4l4-8 3 6 2-4 3 6z" clip-rule="evenodd"/></svg>
+                            15 FOTO
+                        </span>
+                    </div>
+                    <div class="absolute bottom-4 left-4 right-4">
+                        <span class="text-[10px] font-bold text-amber-400 uppercase">Budaya</span>
+                        <h4 class="text-xs font-bold text-white mt-1 leading-snug group-hover:text-sky-300 transition line-clamp-2">
+                            Pesta Kesenian Rakyat Menjaga Warisan Leluhur di Tengah Zaman Serba Cepat
+                        </h4>
+                        <p class="text-[10px] text-slate-400 mt-1">Foto: Budi Santoso</p>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Search Modal Overlay (Accessible via Ctrl+K / Search button) -->
+    <div id="search-modal" class="fixed inset-0 z-50 bg-slate-950/70 backdrop-blur-sm hidden flex items-start justify-center pt-20 px-4">
+        <div class="bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-2xl w-full max-w-xl shadow-2xl overflow-hidden animate-fadeIn">
+            <div class="p-4 border-b border-slate-200 dark:border-slate-800 flex items-center gap-3">
+                <svg class="w-5 h-5 text-sky-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"/></svg>
+                <input type="text" id="global-search-input" placeholder="Cari topik, judul berita, atau nama tokoh..." class="w-full text-sm bg-transparent border-0 focus:outline-none text-slate-900 dark:text-white placeholder-slate-400">
+                <button id="close-search-modal" class="text-xs text-slate-400 hover:text-slate-600 dark:hover:text-white p-1">ESC</button>
+            </div>
+            <div class="p-4 max-h-80 overflow-y-auto" id="search-live-results">
+                <p class="text-xs text-slate-400 text-center py-4">Ketik kata kunci pencarian untuk melihat hasil instan...</p>
+            </div>
+            <div class="bg-slate-50 dark:bg-slate-800/50 px-4 py-2.5 text-[11px] text-slate-500 flex justify-between">
+                <span>Pencarian Cerdas Portal Berita</span>
+                <span>ESC untuk menutup</span>
+            </div>
+        </div>
+    </div>
+
+    <!-- Sticky Floating Bottom Bar (Ads / Breaking Notification Prototype) -->
+    <div class="sticky bottom-0 z-40 bg-white/95 dark:bg-slate-900/95 backdrop-blur border-t border-slate-200 dark:border-slate-800 py-2.5 px-4 shadow-lg hidden md:block">
+        <div class="max-w-7xl mx-auto flex items-center justify-between gap-4 text-xs">
+            <div class="flex items-center gap-3">
+                <span class="w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></span>
+                <span class="text-slate-600 dark:text-slate-300">Anda sedang melihat: <strong>Prototipe Portal Berita & CMS (Paket Enterprise Kompas.com Standard)</strong></span>
+            </div>
+            <div class="flex items-center gap-2">
+                <a href="rab.html" class="px-3 py-1 bg-slate-100 hover:bg-slate-200 dark:bg-slate-800 dark:hover:bg-slate-700 text-slate-700 dark:text-slate-200 rounded-lg font-semibold transition">
+                    &larr; Cek Rincian RAB
+                </a>
+                <a href="artikel.html" class="px-3 py-1 bg-sky-600 hover:bg-sky-500 text-white rounded-lg font-bold transition">
+                    Lihat Contoh Detail Artikel &rarr;
+                </a>
+                <a href="cms.html" class="px-3 py-1 bg-slate-900 hover:bg-slate-800 text-white rounded-lg font-bold dark:bg-indigo-600 dark:hover:bg-indigo-500 transition">
+                    Buka CMS Redaksi &rarr;
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Official News Portal Footer -->
+    <footer class="bg-slate-900 text-slate-400 text-xs border-t border-slate-800 pt-12 pb-16">
+        <div class="max-w-7xl mx-auto px-4 sm:px-8 grid grid-cols-1 md:grid-cols-4 gap-8 mb-10">
+            
+            <!-- Col 1: Brand Info -->
+            <div class="space-y-3">
+                <div class="flex items-center gap-2">
+                    <div class="w-8 h-8 bg-sky-600 rounded-lg flex items-center justify-center text-white font-black text-sm">iC</div>
+                    <span class="text-xl font-extrabold text-white">iCraft<span class="text-sky-400">DS</span></span>
+                </div>
+                <p class="text-slate-400 leading-relaxed text-[11px]">
+                    Portal berita independen menyajikan informasi akurat, berimbang, dan berpegang teguh pada Kode Etik Jurnalistik serta Pedoman Media Siber Dewan Pers Indonesia.
+                </p>
+                <p class="text-[10px] text-slate-500">
+                    Ditenagai oleh Arsitektur Modern CMS Berita &bull; <strong>iCraft Digital Services</strong>
+                </p>
+            </div>
+
+            <!-- Col 2: Kanal Populer -->
+            <div class="space-y-2">
+                <h4 class="font-bold text-white text-xs uppercase tracking-wider mb-2">Kanal Utama</h4>
+                <ul class="space-y-1.5 text-[11px]">
+                    <li><a href="#" class="hover:text-sky-400">Nasional & Politik</a></li>
+                    <li><a href="#" class="hover:text-sky-400">Bisnis & Finansial</a></li>
+                    <li><a href="#" class="hover:text-sky-400">Teknologi & AI</a></li>
+                    <li><a href="#" class="hover:text-sky-400">Bola & Olahraga Internasional</a></li>
+                    <li><a href="#" class="hover:text-sky-400">Cek Fakta & Anti-Hoaks</a></li>
+                </ul>
+            </div>
+
+            <!-- Col 3: Standar & Regulasi Pers -->
+            <div class="space-y-2">
+                <h4 class="font-bold text-white text-xs uppercase tracking-wider mb-2">Regulasi & Legal</h4>
+                <ul class="space-y-1.5 text-[11px]">
+                    <li><a href="#" class="hover:text-sky-400">Pedoman Pemberitaan Media Siber</a></li>
+                    <li><a href="#" class="hover:text-sky-400">Kode Etik Jurnalistik</a></li>
+                    <li><a href="#" class="hover:text-sky-400">Hak Jawab & Hak Koreksi</a></li>
+                    <li><a href="#" class="hover:text-sky-400">Kebijakan Privasi</a></li>
+                    <li><a href="#" class="hover:text-sky-400">Struktur Dewan Redaksi</a></li>
+                </ul>
+            </div>
+
+            <!-- Col 4: Layanan Iklan & Kontak -->
+            <div class="space-y-2">
+                <h4 class="font-bold text-white text-xs uppercase tracking-wider mb-2">Kerjasama & Iklan</h4>
+                <p class="text-[11px] text-slate-400">
+                    Hubungi departemen komersial untuk penempatan Banner Iklan, Advertorial, dan Media Partnership.
+                </p>
+                <div class="p-3 bg-slate-800/80 rounded-xl border border-slate-700/80 space-y-1 text-[11px]">
+                    <p class="text-slate-300 font-semibold">Iklan: iklan@icraftds.id</p>
+                    <p class="text-slate-300 font-semibold">Redaksi: redaksi@icraftds.id</p>
+                    <p class="text-slate-400 text-[10px]">Hotline WhatsApp: +62 812-XXXX-XXXX</p>
+                </div>
+            </div>
+
+        </div>
+
+        <div class="max-w-7xl mx-auto px-4 sm:px-8 border-t border-slate-800/80 pt-6 flex flex-col sm:flex-row items-center justify-between text-[11px] text-slate-500 gap-4">
+            <p>&copy; 2026 PT iCraftDS Media Pratama. Hak cipta dilindungi undang-undang.</p>
+            <p>Developed with High-Performance CMS by <a href="rab.html" class="text-sky-400 font-semibold hover:underline">iCraft Digital Services</a></p>
+        </div>
+    </footer>
+
+    <!-- Main JavaScript -->
+    <script src="js/main.js"></script>
+</body>
+</html>

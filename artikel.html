@@ -1,0 +1,493 @@
+<!DOCTYPE html>
+<html lang="id" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pusat Data AI Terbesar Nusantara Resmi Beroperasi: Lompatan Besar Kedaulatan Komputasi Indonesia - iCraftDS</title>
+    <meta name="description" content="Fasilitas superkomputer ramah lingkungan berkapasitas 500 PFLOPS siap menopang riset kecerdasan buatan dan kedaulatan digital nasional.">
+    
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        nusa: {
+                            50: '#f0f9ff',
+                            600: '#0284c7',
+                            700: '#0369a1',
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Merriweather:ital,wght@0,300;0,400;0,700;1,300&display=swap" rel="stylesheet">
+    
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body class="bg-slate-50 text-slate-800 dark:bg-slate-950 dark:text-slate-100 font-sans-modern antialiased min-h-screen flex flex-col">
+
+    <!-- Reading Progress Bar (Fixed Top) -->
+    <div id="reading-progress"></div>
+
+    <!-- Top Announcement Bar -->
+    <div class="bg-gradient-to-r from-slate-900 via-sky-950 to-slate-900 text-white text-xs py-2 px-4 border-b border-slate-800 sticky top-0 z-50">
+        <div class="max-w-7xl mx-auto flex flex-wrap items-center justify-between gap-3">
+            <div class="flex items-center gap-3">
+                <span class="bg-sky-500 text-white text-[10px] font-extrabold uppercase px-2 py-0.5 rounded tracking-wider">Halaman Artikel Demo</span>
+                <span class="hidden md:inline text-slate-300">Format Pembacaan Berita Lengkap & Fitur Monetisasi In-Article</span>
+            </div>
+            <div class="flex items-center gap-2 sm:gap-4">
+                <a href="index.html" class="text-slate-300 hover:text-white flex items-center gap-1 transition text-[11px]">
+                    &larr; Kembali ke Beranda
+                </a>
+                <span class="text-slate-700">|</span>
+                <a href="cms.html" class="bg-sky-600 hover:bg-sky-500 text-white font-bold px-3 py-1 rounded-md text-[11px] flex items-center gap-1.5 transition shadow">
+                    Edit Artikel Ini di CMS &rarr;
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Main Branding Header -->
+    <header class="bg-white dark:bg-slate-900 border-b border-slate-200 dark:border-slate-800 py-4 px-4 sm:px-8">
+        <div class="max-w-7xl mx-auto flex items-center justify-between">
+            <a href="index.html" class="flex items-center gap-2 group">
+                <div class="w-10 h-10 bg-gradient-to-tr from-sky-600 to-cyan-500 rounded-xl flex items-center justify-center text-white font-black text-xl shadow-md">
+                    iC
+                </div>
+                <div>
+                    <span class="text-2xl font-black tracking-tight text-slate-900 dark:text-white uppercase">iCraft<span class="text-sky-600 dark:text-sky-400">DS</span></span>
+                    <p class="text-[9px] tracking-wider font-semibold text-slate-500 dark:text-slate-400 uppercase">Jendela Kabar Indonesia & Dunia</p>
+                </div>
+            </a>
+
+            <!-- Reader Controls & Theme Toggle -->
+            <div class="flex items-center gap-2 sm:gap-3">
+                <button class="theme-toggle-btn p-2 rounded-xl bg-slate-100 hover:bg-slate-200 dark:bg-slate-800 dark:hover:bg-slate-700 text-slate-600 dark:text-slate-300 transition" title="Ganti Mode Gelap/Terang">
+                    <span class="theme-icon-moon">
+                        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z"/></svg>
+                    </span>
+                    <span class="theme-icon-sun hidden">
+                        <svg class="w-4 h-4 text-amber-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 3v1m0 16v1m9-9h-1M4 9H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z"/></svg>
+                    </span>
+                </button>
+                <a href="cms.html" class="px-3 py-2 bg-slate-900 dark:bg-sky-600 text-white font-bold text-xs rounded-xl hover:opacity-90 transition">
+                    CMS Redaksi
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Breadcrumb & Category Bar -->
+    <div class="border-b border-slate-200 dark:border-slate-800 bg-white/70 dark:bg-slate-900/70 text-xs py-2 px-4 sm:px-8">
+        <div class="max-w-7xl mx-auto flex items-center justify-between text-slate-500">
+            <nav class="flex items-center space-x-2">
+                <a href="index.html" class="hover:text-sky-600">Beranda</a>
+                <span>&rsaquo;</span>
+                <a href="index.html#teknologi" class="text-sky-600 font-semibold">Teknologi</a>
+                <span>&rsaquo;</span>
+                <span class="text-slate-400 truncate max-w-[200px] sm:max-w-xs">Kecerdasan Buatan (AI)</span>
+            </nav>
+            <span class="hidden sm:inline text-rose-600 font-bold uppercase text-[10px] tracking-wider bg-rose-50 dark:bg-rose-950/60 px-2 py-0.5 rounded">Laporan Khusus</span>
+        </div>
+    </div>
+
+    <!-- Article Container -->
+    <main class="max-w-7xl mx-auto px-4 sm:px-8 py-8 flex-1">
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-10">
+            
+            <!-- Left Main Column: Full Editorial Content (Col 1-8) -->
+            <article class="lg:col-span-8 space-y-6">
+                
+                <!-- Headline Header -->
+                <div>
+                    <span class="text-xs font-bold text-sky-600 dark:text-sky-400 uppercase tracking-widest block mb-2">Transformasi Digital Indonesia</span>
+                    <h1 class="text-2xl sm:text-4xl font-extrabold text-slate-900 dark:text-white leading-tight font-editorial">
+                        Pusat Data AI Terbesar Nusantara Resmi Beroperasi: Lompatan Besar Kedaulatan Komputasi Indonesia
+                    </h1>
+                    <p class="text-sm sm:text-base text-slate-600 dark:text-slate-300 mt-3 leading-relaxed font-editorial italic">
+                        Dilengkapi 500 PFLOPS komputasi hijau dan sistem pendingin ramah lingkungan, fasilitas ini memangkas ketergantungan server luar negeri hingga 70 persen.
+                    </p>
+                </div>
+
+                <!-- Editorial Meta & Author Info Bar -->
+                <div class="flex flex-wrap items-center justify-between border-y border-slate-200 dark:border-slate-800 py-3 gap-3 text-xs">
+                    <div class="flex items-center gap-3">
+                        <div class="w-10 h-10 rounded-full bg-gradient-to-tr from-sky-600 to-indigo-600 text-white font-bold flex items-center justify-center text-sm shadow">
+                            IF
+                        </div>
+                        <div>
+                            <p class="font-bold text-slate-900 dark:text-slate-100">
+                                Irsyaad Fatahilah <span class="text-slate-400 font-normal">&bull; Reporter</span>
+                            </p>
+                            <p class="text-[11px] text-slate-500">
+                                Editor: <strong>Ahmad Farhan</strong> &bull; Selasa, 13 Oktober 2026, 09:15 WIB
+                            </p>
+                        </div>
+                    </div>
+
+                    <!-- Action Buttons (Font Size, Bookmark, Share) -->
+                    <div class="flex items-center gap-2">
+                        <!-- Font Resizer -->
+                        <div class="flex items-center bg-slate-100 dark:bg-slate-800 rounded-lg p-0.5 border border-slate-200 dark:border-slate-700">
+                            <button id="font-decrease" class="px-2 py-1 text-xs font-bold text-slate-600 dark:text-slate-300 hover:text-sky-600" title="Kecilkan Font">A-</button>
+                            <span class="text-slate-300 dark:text-slate-600">|</span>
+                            <button id="font-increase" class="px-2 py-1 text-xs font-bold text-slate-600 dark:text-slate-300 hover:text-sky-600" title="Besarkan Font">A+</button>
+                        </div>
+
+                        <!-- Bookmark Button -->
+                        <button class="bookmark-btn p-2 rounded-lg bg-slate-100 hover:bg-slate-200 dark:bg-slate-800 dark:hover:bg-slate-700 text-slate-600 dark:text-slate-300 transition" title="Simpan Artikel">
+                            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 5a2 2 0 012-2h10a2 2 0 012 2v16l-7-3.5L5 21V5z"/></svg>
+                        </button>
+
+                        <!-- Share WhatsApp Button -->
+                        <a href="https://api.whatsapp.com/send?text=Baca%20berita%20menarik%20di%20iCraftDS" target="_blank" class="px-3 py-1.5 rounded-lg bg-emerald-600 hover:bg-emerald-500 text-white font-bold text-xs flex items-center gap-1.5 transition shadow-sm">
+                            <svg class="w-3.5 h-3.5 fill-current" viewBox="0 0 24 24"><path d="M12.031 6.172c-3.181 0-5.767 2.586-5.768 5.766-.001 1.298.38 2.27 1.019 3.287l-.582 2.128 2.182-.573c.978.58 1.911.928 3.145.929 3.178 0 5.767-2.587 5.768-5.766 0-3.18-2.587-5.771-5.764-5.771zm3.392 8.244c-.144.405-.837.774-1.17.824-.299.045-.677.063-1.092-.069-.252-.08-.575-.187-.988-.365-1.739-.751-2.874-2.502-2.961-2.617-.087-.116-.708-.94-.708-1.793s.448-1.273.607-1.446c.159-.173.346-.217.462-.217l.332.006c.106.005.249-.04.39.299.144.347.491 1.2.534 1.287.043.087.072.188.014.304-.058.116-.087.188-.173.289l-.26.304c-.087.086-.177.18-.076.353.101.173.449.741.964 1.2.662.591 1.221.774 1.394.86.173.086.275.072.376-.044.101-.116.433-.506.549-.679.116-.174.231-.145.39-.087s1.011.477 1.184.564.289.13.332.203c.043.072.043.419-.101.824z"/></svg>
+                            <span>Share</span>
+                        </a>
+
+                        <button class="copy-link-btn px-2.5 py-1.5 rounded-lg bg-slate-100 hover:bg-slate-200 dark:bg-slate-800 dark:hover:bg-slate-700 text-slate-600 dark:text-slate-300 transition" title="Salin Tautan Berita">
+                            <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z"/></svg>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- AI Audio Player Simulation Box ("Dengarkan Berita Ini") -->
+                <div class="bg-gradient-to-r from-sky-50 to-indigo-50 dark:from-slate-900 dark:to-sky-950 p-4 rounded-2xl border border-sky-100 dark:border-slate-800 flex flex-col sm:flex-row items-center justify-between gap-4">
+                    <div class="flex items-center gap-3 w-full sm:w-auto">
+                        <button id="audio-play-btn" class="w-10 h-10 rounded-full bg-sky-600 hover:bg-sky-500 text-white flex items-center justify-center flex-shrink-0 transition shadow-md">
+                            <svg id="audio-play-icon" class="w-5 h-5 ml-0.5" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zM9.555 7.168A1 1 0 008 8v4a1 1 0 001.555.832l3-2a1 1 0 000-1.664l-3-2z" clip-rule="evenodd"/></svg>
+                            <svg id="audio-pause-icon" class="w-5 h-5 hidden" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zM7 8a1 1 0 012 0v4a1 1 0 11-2 0V8zm5-1a1 1 0 00-1 1v4a1 1 0 102 0V8a1 1 0 00-1-1z" clip-rule="evenodd"/></svg>
+                        </button>
+                        <div>
+                            <span class="text-[10px] uppercase font-bold text-sky-600 dark:text-sky-400 tracking-wider block">AI Voice Assistant</span>
+                            <strong class="text-xs font-bold text-slate-800 dark:text-slate-100">Dengarkan Ringkasan Berita Ini</strong>
+                        </div>
+                    </div>
+
+                    <!-- Progress & Wave -->
+                    <div class="flex-1 w-full max-w-xs flex flex-col gap-1">
+                        <div class="w-full bg-slate-200 dark:bg-slate-800 rounded-full h-1.5 overflow-hidden">
+                            <div id="audio-progress-bar" class="bg-sky-600 h-full w-0 transition-all duration-300"></div>
+                        </div>
+                        <div class="flex justify-between text-[10px] text-slate-500 font-mono">
+                            <span id="audio-time-label">0:00 / 02:05</span>
+                            <span id="audio-soundwave" class="opacity-30 tracking-widest text-sky-600 font-bold">&#9602;&#9605;&#9608;&#9603;&#9606;&#9602;</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Featured Hero Photo with Watermark & Jurnalistic Caption -->
+                <figure class="rounded-2xl overflow-hidden bg-slate-900 border border-slate-200 dark:border-slate-800 relative">
+                    <div class="relative">
+                        <img src="https://images.unsplash.com/photo-1558494949-ef010cbdcc31?auto=format&fit=crop&w=1200&q=80" 
+                             alt="Server Pusat Data Canggih" 
+                             class="w-full h-auto object-cover max-h-[480px]">
+                        
+                        <!-- Watermark Portal Berita (Kompas.com style) -->
+                        <div class="absolute bottom-3 right-3 bg-black/60 backdrop-blur text-white text-[10px] font-mono font-bold px-2 py-0.5 rounded border border-white/20 select-none">
+                            iCraftDS &copy; FOTO DOK.
+                        </div>
+                    </div>
+                    <figcaption class="p-3 bg-slate-100 dark:bg-slate-900 text-xs text-slate-600 dark:text-slate-400 border-t border-slate-200 dark:border-slate-800 flex justify-between items-start">
+                        <span>
+                            <strong>JAKARTA</strong> &mdash; Barisan rak server generasi mutakhir dengan sistem pendingin cair (liquid cooling) di Pusat Data AI Nasional, Jawa Barat.
+                        </span>
+                        <span class="text-slate-400 flex-shrink-0 ml-3 text-[11px]">Fotografer: Dimas Prasetya</span>
+                    </figcaption>
+                </figure>
+
+                <!-- ============================================== -->
+                <!-- ARTICLE BODY CONTENT (PAGE 1) -->
+                <!-- ============================================== -->
+                <div id="article-page-1" class="article-page-content text-slate-800 dark:text-slate-200 leading-relaxed space-y-5 font-editorial text-base" id="article-content-body">
+                    <p class="first-letter:text-5xl first-letter:font-black first-letter:text-sky-600 first-letter:mr-2 first-letter:float-left first-letter:leading-none">
+                        <strong>JAKARTA, iCraftDS</strong> &mdash; Pemerintah secara resmi meresmikan pengoperasian fasilitas Pusat Data Kecerdasan Buatan (AI) Nasional skala superkomputer pertama di Indonesia pada Selasa (13/10/2026). Pembangunan infrastruktur strategis ini diharapkan menjadi pilar utama kedaulatan data dan kemandirian teknologi nasional di era komputasi mutakhir.
+                    </p>
+
+                    <p>
+                        Fasilitas yang berlokasi di kawasan koridor teknologi Jawa Barat tersebut mengusung daya komputasi hingga 500 Petaflops (PFLOPS) dengan dukungan puluhan ribu unit akselerator grafis generasi terbaru. Melalui infrastruktur ini, para periset dalam negeri, universitas, kementerian, hingga pelaku industri rintisan (startup) dapat melatih model bahasa besar (*Large Language Models*) dan kecerdasan analitik tanpa harus menyewa server komputasi di luar negeri.
+                    </p>
+
+                    <!-- Pull Quote / Blok Kutipan Redaksi Khas Kompas -->
+                    <blockquote class="my-6 p-5 border-l-4 border-sky-600 bg-sky-50/70 dark:bg-slate-900 dark:border-sky-500 rounded-r-xl italic text-slate-700 dark:text-slate-300">
+                        &ldquo;Kita tidak lagi sekadar menjadi konsumen teknologi global. Dengan hadirnya pusat data AI mandiri, seluruh aset intelektual, riset genomik, ketahanan pangan, hingga transaksi perbankan kita tersimpan aman di tanah air.&rdquo;
+                        <span class="block mt-2 font-bold not-italic text-xs text-sky-800 dark:text-sky-400 font-sans-modern">
+                            &mdash; Menteri Komunikasi & Informatika RI
+                        </span>
+                    </blockquote>
+
+                    <!-- In-Article Banner Ad Slot Simulation (Monetisasi Halaman) -->
+                    <div class="my-8 ad-slot-box h-40 p-4 text-center bg-slate-50 dark:bg-slate-900 border border-dashed border-slate-300 dark:border-slate-700 font-sans-modern">
+                        <span class="ad-label">In-Article Responsive Ad (Google AdSense Ready)</span>
+                        <div class="space-y-2">
+                            <span class="text-xs font-bold text-sky-600 block">Slot Iklan Banner Tengah Artikel</span>
+                            <p class="text-[11px] text-slate-500 max-w-md mx-auto">
+                                Titik penempatan iklan strategis dengan rasio *Click-Through Rate (CTR)* tertinggi pada portal berita.
+                            </p>
+                            <span class="text-[10px] text-slate-400 font-mono">Ukuran adaptif responsif 336x280 / 728x90</span>
+                        </div>
+                    </div>
+
+                    <p>
+                        Tidak hanya mengandalkan daya komputasi tinggi, pusat data ini mengadopsi standar *Green Data Center* dengan rasio Power Usage Effectiveness (PUE) di bawah 1.15. Sumber kelistrikan dipasok langsung dari pembangkit listrik tenaga panas bumi (geotermal) dan panel surya atap, menjadikannya salah satu fasilitas komputasi terbersih di kawasan Asia Tenggara.
+                    </p>
+
+                    <!-- Box Baca Juga Terkait -->
+                    <div class="my-6 p-4 bg-slate-100 dark:bg-slate-800/80 rounded-xl border-l-4 border-rose-600 font-sans-modern text-xs">
+                        <span class="font-bold text-rose-600 uppercase tracking-wider block mb-1">Baca Juga:</span>
+                        <a href="index.html" class="font-bold text-slate-900 dark:text-slate-100 hover:text-sky-600 dark:hover:text-sky-400 text-sm leading-snug">
+                            BRIN Rilis Kerangka Regulasi Etika Kecerdasan Buatan Generatif untuk Sektor Publik &rarr;
+                        </a>
+                    </div>
+                </div>
+
+                <!-- ============================================== -->
+                <!-- ARTICLE BODY CONTENT (PAGE 2) - Hidden by default -->
+                <!-- ============================================== -->
+                <div id="article-page-2" class="article-page-content text-slate-800 dark:text-slate-200 leading-relaxed space-y-5 font-editorial text-base hidden">
+                    <p>
+                        <strong>Dukungan Terhadap Talenta Digital Lokal</strong> &mdash; Selain memfasilitasi kebutuhan korporasi besar, pengelola pusat data mengalokasikan 30 persen kapasitas komputasi tanpa biaya bagi sivitas akademika dan mahasiswa berprestasi yang sedang mengerjakan tesis maupun riset ilmiah berskala internasional.
+                    </p>
+                    <p>
+                        Langkah ini dinilai para pengamat ekonomi digital sebagai katalis utama lahirnya solusi kecerdasan buatan terapan di bidang deteksi dini bencana tsunami, pemetaan lahan pertanian presisi, serta otomasi pelayanan medis di daerah terdepan, terluar, dan tertinggal (3T).
+                    </p>
+                    <p>
+                        Peluncuran fasilitas ini sekaligus menandai babak baru kedaulatan informasi nasional, di mana integritas data publik terlindungi dari potensi kebocoran lintas batas yurisdiksi luar negeri.
+                    </p>
+                </div>
+
+                <!-- MULTI-PAGE PAGINATION COMPONENT (Khas Kompas.com & Detik) -->
+                <div class="mt-8 pt-6 border-t border-slate-200 dark:border-slate-800 font-sans-modern">
+                    <div class="bg-slate-100 dark:bg-slate-900 p-4 rounded-2xl border border-slate-200 dark:border-slate-800 flex flex-col sm:flex-row items-center justify-between gap-4">
+                        <div>
+                            <span class="text-xs font-bold text-slate-900 dark:text-white block">Halaman Artikel Berita:</span>
+                            <span class="text-[11px] text-slate-500">Membagi artikel panjang untuk kenyamanan baca & impresi iklan</span>
+                        </div>
+                        <div class="flex items-center gap-1.5">
+                            <button id="page-btn-1" onclick="switchArticlePage(1)" class="w-8 h-8 rounded-lg bg-sky-600 text-white font-bold text-xs shadow">1</button>
+                            <button id="page-btn-2" onclick="switchArticlePage(2)" class="w-8 h-8 rounded-lg bg-white dark:bg-slate-800 text-slate-700 dark:text-slate-300 font-bold text-xs border border-slate-200 dark:border-slate-700 hover:border-sky-500">2</button>
+                            <button id="page-btn-all" onclick="showAllPages()" class="px-3 h-8 rounded-lg bg-white dark:bg-slate-800 text-slate-700 dark:text-slate-300 font-semibold text-xs border border-slate-200 dark:border-slate-700 hover:border-sky-500">Tampilkan Semua</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Tag Topik Terkait (Topic Pills) -->
+                <div class="pt-4 font-sans-modern">
+                    <span class="text-xs font-bold text-slate-500 uppercase tracking-wider block mb-2">Topik Terkait:</span>
+                    <div class="flex flex-wrap gap-2 text-xs">
+                        <a href="index.html" class="px-3 py-1 bg-slate-100 dark:bg-slate-800 hover:bg-sky-50 dark:hover:bg-sky-950/60 hover:text-sky-600 rounded-lg text-slate-700 dark:text-slate-300 transition border border-slate-200 dark:border-slate-700">#PusatDataAI</a>
+                        <a href="index.html" class="px-3 py-1 bg-slate-100 dark:bg-slate-800 hover:bg-sky-50 dark:hover:bg-sky-950/60 hover:text-sky-600 rounded-lg text-slate-700 dark:text-slate-300 transition border border-slate-200 dark:border-slate-700">#KedaulatanDigital</a>
+                        <a href="index.html" class="px-3 py-1 bg-slate-100 dark:bg-slate-800 hover:bg-sky-50 dark:hover:bg-sky-950/60 hover:text-sky-600 rounded-lg text-slate-700 dark:text-slate-300 transition border border-slate-200 dark:border-slate-700">#Superkomputer</a>
+                        <a href="index.html" class="px-3 py-1 bg-slate-100 dark:bg-slate-800 hover:bg-sky-50 dark:hover:bg-sky-950/60 hover:text-sky-600 rounded-lg text-slate-700 dark:text-slate-300 transition border border-slate-200 dark:border-slate-700">#TeknologiIndonesia</a>
+                    </div>
+                </div>
+
+                <!-- Author Bio Card -->
+                <div class="p-5 bg-white dark:bg-slate-900 rounded-2xl border border-slate-200 dark:border-slate-800 shadow-sm flex items-center gap-4 font-sans-modern">
+                    <div class="w-14 h-14 rounded-2xl bg-gradient-to-tr from-sky-600 to-indigo-600 text-white font-bold text-lg flex items-center justify-center flex-shrink-0 shadow">
+                        IF
+                    </div>
+                    <div class="flex-1 text-xs">
+                        <div class="flex items-center justify-between">
+                            <strong class="text-sm font-bold text-slate-900 dark:text-white">Irsyaad Fatahilah</strong>
+                            <span class="text-[10px] text-sky-600 font-bold bg-sky-50 dark:bg-sky-950 px-2 py-0.5 rounded">Jurnalis Tekno Utama</span>
+                        </div>
+                        <p class="text-slate-600 dark:text-slate-400 mt-1 leading-relaxed">
+                            Meliput perkembangan teknologi kecerdasan buatan, telekomunikasi satelit, dan kebijakan industri siber Indonesia sejak 2020.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- INTERACTIVE COMMENT SECTION -->
+                <section class="pt-6 font-sans-modern">
+                    <div class="flex items-center justify-between border-b border-slate-200 dark:border-slate-800 pb-3 mb-6">
+                        <h3 class="font-bold text-base text-slate-900 dark:text-white flex items-center gap-2">
+                            <span>Komentar Pembaca</span>
+                            <span id="comment-count-badge" class="bg-sky-600 text-white text-xs px-2 py-0.5 rounded-full font-mono">2</span>
+                        </h3>
+                        <span class="text-xs text-slate-400">Moderasi otomatis aktif</span>
+                    </div>
+
+                    <!-- Comment Input Box -->
+                    <form id="comment-form" class="space-y-3 mb-6">
+                        <textarea id="comment-input" rows="3" placeholder="Tulis tanggapan atau opini Anda secara santun dan bertanggung jawab..." required class="w-full text-xs p-3.5 rounded-xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 focus:outline-none focus:ring-2 focus:ring-sky-500 text-slate-900 dark:text-white placeholder-slate-400 shadow-sm"></textarea>
+                        <div class="flex items-center justify-between">
+                            <span class="text-[10px] text-slate-400">Harap patuhi UU ITE dan etika berpendapat.</span>
+                            <button type="submit" class="px-5 py-2 bg-sky-600 hover:bg-sky-500 text-white text-xs font-bold rounded-xl shadow transition">
+                                Kirim Komentar
+                            </button>
+                        </div>
+                    </form>
+
+                    <!-- Comment Stream List -->
+                    <div id="comment-list" class="space-y-4">
+                        
+                        <!-- Sample Comment 1 -->
+                        <div class="flex items-start gap-3 p-4 bg-slate-50 dark:bg-slate-900/60 rounded-xl border border-slate-200 dark:border-slate-800 text-xs">
+                            <div class="w-8 h-8 rounded-full bg-emerald-600 text-white font-bold flex items-center justify-center flex-shrink-0">
+                                B
+                            </div>
+                            <div class="flex-1">
+                                <div class="flex items-center justify-between mb-1">
+                                    <strong class="font-bold text-slate-900 dark:text-slate-100">Bambang Triyono</strong>
+                                    <span class="text-[10px] text-slate-400">20 Menit yang lalu</span>
+                                </div>
+                                <p class="text-slate-700 dark:text-slate-300 leading-relaxed">
+                                    Langkah yang sangat progresif! Terobosan ini akan mempermudah para peneliti di perguruan tinggi yang selama ini terbentur keterbatasan GPU komputasi awan luar negeri.
+                                </p>
+                            </div>
+                        </div>
+
+                        <!-- Sample Comment 2 -->
+                        <div class="flex items-start gap-3 p-4 bg-slate-50 dark:bg-slate-900/60 rounded-xl border border-slate-200 dark:border-slate-800 text-xs">
+                            <div class="w-8 h-8 rounded-full bg-indigo-600 text-white font-bold flex items-center justify-center flex-shrink-0">
+                                M
+                            </div>
+                            <div class="flex-1">
+                                <div class="flex items-center justify-between mb-1">
+                                    <strong class="font-bold text-slate-900 dark:text-slate-100">Maya Anggraini</strong>
+                                    <span class="text-[10px] text-slate-400">1 Jam yang lalu</span>
+                                </div>
+                                <p class="text-slate-700 dark:text-slate-300 leading-relaxed">
+                                    Keren juga karena menggunakan energi geotermal dan pendingin ramah lingkungan. Semoga keamanannya terus dimonitor secara ketat dari ancaman serangan siber.
+                                </p>
+                            </div>
+                        </div>
+
+                    </div>
+                </section>
+
+            </article>
+
+            <!-- Right Column: Sidebar (Col 9-12) -->
+            <aside class="lg:col-span-4 space-y-6">
+                
+                <!-- Sticky Sidebar Wrapper -->
+                <div class="sticky top-16 space-y-6">
+                    
+                    <!-- Sidebar Ad Slot 300x600 (Half Page Banner) -->
+                    <div class="ad-slot-box h-80 p-4 text-center bg-slate-50 dark:bg-slate-900 border border-dashed border-slate-300 dark:border-slate-700">
+                        <span class="ad-label">Half Page Banner (300x600)</span>
+                        <div class="space-y-3">
+                            <span class="text-xs font-bold text-sky-600 block">Sponsor Banner Sidebar</span>
+                            <p class="text-[11px] text-slate-500">Mendukung iklan rich media HTML5, Google Display, dan direct campaign.</p>
+                            <a href="cms.html" class="inline-block text-[10px] bg-slate-900 dark:bg-sky-600 text-white font-bold px-3 py-1.5 rounded-lg shadow">
+                                Pasang Banner &rarr;
+                            </a>
+                        </div>
+                    </div>
+
+                    <!-- Box Berita Rekomendasi Terkait -->
+                    <div class="bg-white dark:bg-slate-900 p-5 rounded-2xl border border-slate-200 dark:border-slate-800 shadow-sm">
+                        <h4 class="font-bold text-xs text-slate-900 dark:text-white uppercase tracking-wider border-b border-slate-100 dark:border-slate-800 pb-3 mb-4">
+                            BERITA TERKAIT LAINNYA
+                        </h4>
+                        
+                        <div class="space-y-4">
+                            
+                            <a href="artikel.html" class="flex gap-3 group">
+                                <div class="w-20 h-16 rounded-lg overflow-hidden bg-slate-900 flex-shrink-0">
+                                    <img src="https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=300&q=80" alt="Chip Riset" class="w-full h-full object-cover group-hover:scale-105 transition">
+                                </div>
+                                <div class="flex-1">
+                                    <h5 class="text-xs font-bold text-slate-800 dark:text-slate-200 group-hover:text-sky-600 dark:group-hover:text-sky-400 transition leading-snug line-clamp-2">
+                                        BRIN Patenkan Prototipe Semikonduktor Generasi Mutakhir
+                                    </h5>
+                                    <span class="text-[10px] text-slate-400 mt-1 block">5 Jam yang lalu</span>
+                                </div>
+                            </a>
+
+                            <a href="artikel.html" class="flex gap-3 group">
+                                <div class="w-20 h-16 rounded-lg overflow-hidden bg-slate-900 flex-shrink-0">
+                                    <img src="https://images.unsplash.com/photo-1526374965328-7f61d4dc18c5?auto=format&fit=crop&w=300&q=80" alt="Cyber Security" class="w-full h-full object-cover group-hover:scale-105 transition">
+                                </div>
+                                <div class="flex-1">
+                                    <h5 class="text-xs font-bold text-slate-800 dark:text-slate-200 group-hover:text-sky-600 dark:group-hover:text-sky-400 transition leading-snug line-clamp-2">
+                                        BSSN Perkuat Pengawasan Keamanan Server Instansi Publik
+                                    </h5>
+                                    <span class="text-[10px] text-slate-400 mt-1 block">1 Hari yang lalu</span>
+                                </div>
+                            </a>
+
+                            <a href="artikel.html" class="flex gap-3 group">
+                                <div class="w-20 h-16 rounded-lg overflow-hidden bg-slate-900 flex-shrink-0">
+                                    <img src="https://images.unsplash.com/photo-1517524008697-84bbe3c3fd98?auto=format&fit=crop&w=300&q=80" alt="Ekosistem Mobil" class="w-full h-full object-cover group-hover:scale-105 transition">
+                                </div>
+                                <div class="flex-1">
+                                    <h5 class="text-xs font-bold text-slate-800 dark:text-slate-200 group-hover:text-sky-600 dark:group-hover:text-sky-400 transition leading-snug line-clamp-2">
+                                        Pabrik Sel Baterai Listrik Tahap II Siap Pasok Ekspor Regional
+                                    </h5>
+                                    <span class="text-[10px] text-slate-400 mt-1 block">2 Hari yang lalu</span>
+                                </div>
+                            </a>
+
+                        </div>
+                    </div>
+
+                </div>
+
+            </aside>
+
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-slate-900 text-slate-400 text-xs border-t border-slate-800 py-8 mt-12">
+        <div class="max-w-7xl mx-auto px-4 sm:px-8 flex flex-col sm:flex-row items-center justify-between gap-4">
+            <p>&copy; 2026 PT iCraftDS Media Pratama. Halaman Demo Prototype Sistem Berita.</p>
+            <div class="flex items-center gap-4">
+                <a href="index.html" class="text-sky-400 hover:underline">Halaman Utama</a>
+                <span>&bull;</span>
+                <a href="cms.html" class="text-sky-400 hover:underline">Dashboard CMS</a>
+                <span>&bull;</span>
+                <a href="rab.html" class="text-sky-400 hover:underline">Dokumen RAB</a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Main JavaScript -->
+    <script src="js/main.js"></script>
+
+    <!-- Multi-page Article Script -->
+    <script>
+        function switchArticlePage(pageNum) {
+            const page1 = document.getElementById('article-page-1');
+            const page2 = document.getElementById('article-page-2');
+            const btn1 = document.getElementById('page-btn-1');
+            const btn2 = document.getElementById('page-btn-2');
+
+            if (pageNum === 1) {
+                page1.classList.remove('hidden');
+                page2.classList.add('hidden');
+                btn1.classList.add('bg-sky-600', 'text-white');
+                btn1.classList.remove('bg-white', 'text-slate-700');
+                btn2.classList.remove('bg-sky-600', 'text-white');
+                btn2.classList.add('bg-white', 'text-slate-700');
+            } else if (pageNum === 2) {
+                page1.classList.add('hidden');
+                page2.classList.remove('hidden');
+                btn2.classList.add('bg-sky-600', 'text-white');
+                btn2.classList.remove('bg-white', 'text-slate-700');
+                btn1.classList.remove('bg-sky-600', 'text-white');
+                btn1.classList.add('bg-white', 'text-slate-700');
+            }
+            window.scrollTo({ top: 380, behavior: 'smooth' });
+            showToast(`Membuka halaman ${pageNum}`);
+        }
+
+        function showAllPages() {
+            document.getElementById('article-page-1').classList.remove('hidden');
+            document.getElementById('article-page-2').classList.remove('hidden');
+            showToast('Menampilkan seluruh isi artikel');
+        }
+    </script>
+</body>
+</html>

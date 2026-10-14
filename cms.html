@@ -1,0 +1,488 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CMS Redaksi Portal Berita - iCraftDS | iCraft Digital Services</title>
+    
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        nusa: {
+                            600: '#0284c7',
+                            700: '#0369a1',
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=JetBrains+Mono:wght@500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body class="bg-slate-100 text-slate-800 antialiased font-sans-modern min-h-screen flex flex-col md:flex-row">
+
+    <!-- Sidebar CMS Navigation -->
+    <aside class="w-full md:w-64 bg-slate-900 text-slate-300 flex-shrink-0 flex flex-col justify-between border-r border-slate-800">
+        <div>
+            <!-- Brand Logo in CMS -->
+            <div class="p-5 border-b border-slate-800 flex items-center justify-between">
+                <a href="index.html" class="flex items-center gap-2.5">
+                    <div class="w-9 h-9 rounded-xl bg-gradient-to-tr from-sky-600 to-cyan-400 flex items-center justify-center text-white font-black text-sm shadow">
+                        iC
+                    </div>
+                    <div>
+                        <span class="font-extrabold text-white text-base tracking-tight uppercase">iCraft<span class="text-sky-400">DS</span></span>
+                        <span class="block text-[9px] uppercase tracking-wider text-slate-400 font-bold">CMS Redaksi Enterprise</span>
+                    </div>
+                </a>
+            </div>
+
+            <!-- Active User Role Badge -->
+            <div class="p-4 mx-3 my-3 bg-slate-800/80 rounded-xl border border-slate-700/60 flex items-center gap-3">
+                <div class="w-9 h-9 rounded-full bg-gradient-to-tr from-sky-600 to-indigo-600 text-white font-bold flex items-center justify-center text-xs flex-shrink-0">
+                    IF
+                </div>
+                <div class="text-xs min-w-0">
+                    <strong class="text-white block truncate">Irsyaad Fatahilah</strong>
+                    <span class="text-[10px] text-sky-400 font-semibold bg-sky-950 px-1.5 py-0.5 rounded border border-sky-800/60">
+                        Pemimpin Redaksi
+                    </span>
+                </div>
+            </div>
+
+            <!-- Navigation Links -->
+            <nav class="px-3 space-y-1 text-xs font-semibold">
+                <button onclick="switchCmsTab('dashboard')" id="nav-dashboard" class="cms-nav-btn w-full flex items-center gap-3 px-3.5 py-2.5 rounded-xl bg-sky-600 text-white transition shadow-sm">
+                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2H6a2 2 0 01-2-2V6zM14 6a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2V6zM4 16a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2H6a2 2 0 01-2-2v-2zM14 16a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2v-2z"/></svg>
+                    <span>Dashboard Redaksi</span>
+                </button>
+
+                <button onclick="switchCmsTab('editor')" id="nav-editor" class="cms-nav-btn w-full flex items-center gap-3 px-3.5 py-2.5 rounded-xl text-slate-400 hover:text-white hover:bg-slate-800 transition">
+                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z"/></svg>
+                    <span>Tulis Artikel Baru</span>
+                    <span class="ml-auto bg-sky-500 text-white text-[9px] px-1.5 py-0.5 rounded font-bold">+ Baru</span>
+                </button>
+
+                <button onclick="switchCmsTab('articles')" id="nav-articles" class="cms-nav-btn w-full flex items-center gap-3 px-3.5 py-2.5 rounded-xl text-slate-400 hover:text-white hover:bg-slate-800 transition">
+                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 20H5a2 2 0 01-2-2V6a2 2 0 012-2h10a2 2 0 012 2v1m2 13a2 2 0 01-2-2V7m2 13a2 2 0 002-2V9a2 2 0 00-2-2h-2m-4-3H9M7 16h6M7 8h6v4H7V8z"/></svg>
+                    <span>Manajemen Artikel</span>
+                    <span class="ml-auto bg-slate-800 text-slate-400 text-[10px] px-2 py-0.5 rounded-full font-mono">1.248</span>
+                </button>
+
+                <button onclick="switchCmsTab('ads')" id="nav-ads" class="cms-nav-btn w-full flex items-center gap-3 px-3.5 py-2.5 rounded-xl text-slate-400 hover:text-white hover:bg-slate-800 transition">
+                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 3.055A9.001 9.001 0 1020.945 13H11V3.055z"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20.488 9H15V3.512A9.025 9.025 0 0120.488 9z"/></svg>
+                    <span>Manajemen Iklan & Banner</span>
+                </button>
+
+                <button onclick="switchCmsTab('team')" id="nav-team" class="cms-nav-btn w-full flex items-center gap-3 px-3.5 py-2.5 rounded-xl text-slate-400 hover:text-white hover:bg-slate-800 transition">
+                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4.354a4 4 0 110 5.292M15 21H3v-1a6 6 0 0112 0v1zm0 0h6v-1a6 6 0 00-9-5.197M13 7a4 4 0 11-8 0 4 4 0 018 0z"/></svg>
+                    <span>Tim Redaksi & Jurnalis</span>
+                </button>
+            </nav>
+        </div>
+
+        <!-- Bottom Controls -->
+        <div class="p-4 border-t border-slate-800 space-y-2">
+            <a href="index.html" target="_blank" class="w-full flex items-center justify-center gap-2 px-3 py-2 rounded-xl bg-slate-800 hover:bg-slate-700 text-sky-400 text-xs font-semibold transition border border-slate-700">
+                <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/></svg>
+                <span>Lihat Portal Frontend</span>
+            </a>
+            <a href="rab.html" class="w-full flex items-center justify-center gap-2 px-3 py-2 rounded-xl bg-slate-950 hover:bg-slate-900 text-slate-400 text-[11px] font-semibold transition">
+                <span>&larr; Cek Rincian RAB iCraft</span>
+            </a>
+        </div>
+    </aside>
+
+    <!-- Main Content Area -->
+    <main class="flex-1 p-4 sm:p-8 overflow-y-auto">
+        
+        <!-- Top Action Bar -->
+        <header class="flex flex-col sm:flex-row items-start sm:items-center justify-between pb-6 mb-8 border-b border-slate-200 gap-4">
+            <div>
+                <h1 id="cms-page-title" class="text-2xl font-extrabold text-slate-900">Dashboard Redaksi & Analisis Pembaca</h1>
+                <p id="cms-page-desc" class="text-xs text-slate-500 mt-1">Pantau statistik real-time pembaca, alur revisi artikel reporter, dan performa kanal berita.</p>
+            </div>
+            <div class="flex items-center gap-3">
+                <span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-bold bg-emerald-100 text-emerald-800 border border-emerald-200">
+                    <span class="w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></span>
+                    Server Online &bull; Latensi 14ms
+                </span>
+                <button onclick="switchCmsTab('editor')" class="px-4 py-2 bg-sky-600 hover:bg-sky-500 text-white text-xs font-bold rounded-xl shadow transition flex items-center gap-1.5">
+                    <span>+ Buat Artikel</span>
+                </button>
+            </div>
+        </header>
+
+        <!-- ============================================== -->
+        <!-- TAB 1: DASHBOARD OVERVIEW -->
+        <!-- ============================================== -->
+        <div id="tab-dashboard" class="cms-tab-content space-y-8">
+            
+            <!-- 4 Key Stat Cards -->
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+                
+                <div class="p-5 bg-white rounded-2xl border border-slate-200 shadow-sm">
+                    <div class="flex items-center justify-between text-slate-500 text-xs mb-2">
+                        <span>Pembaca Hari Ini (Views)</span>
+                        <span class="text-emerald-600 font-bold bg-emerald-50 px-2 py-0.5 rounded text-[10px]">+18.4%</span>
+                    </div>
+                    <div class="text-2xl font-extrabold text-slate-900 font-mono">148.250</div>
+                    <p class="text-[11px] text-slate-400 mt-1">Puncak trafik: 08:30 - 10:00 WIB</p>
+                </div>
+
+                <div class="p-5 bg-white rounded-2xl border border-slate-200 shadow-sm">
+                    <div class="flex items-center justify-between text-slate-500 text-xs mb-2">
+                        <span>Artikel Terbit</span>
+                        <span class="text-sky-600 font-bold bg-sky-50 px-2 py-0.5 rounded text-[10px]">Hari Ini: 34</span>
+                    </div>
+                    <div class="text-2xl font-extrabold text-slate-900 font-mono">1.248</div>
+                    <p class="text-[11px] text-slate-400 mt-1">Total arsip berita terindeks</p>
+                </div>
+
+                <div class="p-5 bg-white rounded-2xl border border-slate-200 shadow-sm">
+                    <div class="flex items-center justify-between text-slate-500 text-xs mb-2">
+                        <span>Pending Review Editor</span>
+                        <span class="text-rose-600 font-bold bg-rose-50 px-2 py-0.5 rounded text-[10px]">Butuh Verifikasi</span>
+                    </div>
+                    <div class="text-2xl font-extrabold text-rose-600 font-mono">7 Artikel</div>
+                    <p class="text-[11px] text-slate-400 mt-1">Dari 4 reporter lapangan</p>
+                </div>
+
+                <div class="p-5 bg-white rounded-2xl border border-slate-200 shadow-sm">
+                    <div class="flex items-center justify-between text-slate-500 text-xs mb-2">
+                        <span>Estimasi Pendapatan Iklan</span>
+                        <span class="text-emerald-600 font-bold bg-emerald-50 px-2 py-0.5 rounded text-[10px]">Bulan Ini</span>
+                    </div>
+                    <div class="text-2xl font-extrabold text-slate-900 font-mono">Rp 14.820.000</div>
+                    <p class="text-[11px] text-slate-400 mt-1">AdSense + Direct Banner</p>
+                </div>
+
+            </div>
+
+            <!-- Workflow Status & Recent Submissions -->
+            <div class="bg-white rounded-2xl border border-slate-200 shadow-sm overflow-hidden">
+                <div class="p-5 border-b border-slate-200 flex items-center justify-between">
+                    <div>
+                        <h3 class="font-bold text-sm text-slate-900">Alur Redaksi: Draft Menunggu Persetujuan Editor</h3>
+                        <p class="text-xs text-slate-500">Mekanisme verifikasi sebelum artikel tayang ke pembaca publik</p>
+                    </div>
+                    <span class="text-xs text-sky-600 font-semibold cursor-pointer hover:underline" onclick="switchCmsTab('articles')">Lihat Semua &rarr;</span>
+                </div>
+
+                <div class="overflow-x-auto">
+                    <table class="min-w-full text-xs text-left">
+                        <thead class="bg-slate-50 text-slate-600 font-bold border-b border-slate-200">
+                            <tr>
+                                <th class="px-5 py-3">Judul Berita</th>
+                                <th class="px-5 py-3">Reporter</th>
+                                <th class="px-5 py-3">Kanal</th>
+                                <th class="px-5 py-3">Waktu Masuk</th>
+                                <th class="px-5 py-3">Status</th>
+                                <th class="px-5 py-3 text-right">Aksi Editor</th>
+                            </tr>
+                        </thead>
+                        <tbody class="divide-y divide-slate-100 text-slate-700">
+                            <tr>
+                                <td class="px-5 py-3.5 font-bold text-slate-900 max-w-xs truncate">
+                                    Pusat Data AI Terbesar Nusantara Resmi Beroperasi
+                                </td>
+                                <td class="px-5 py-3.5">Irsyaad Fatahilah</td>
+                                <td class="px-5 py-3.5"><span class="bg-sky-50 text-sky-700 font-semibold px-2 py-0.5 rounded">Teknologi</span></td>
+                                <td class="px-5 py-3.5 text-slate-400">10 Menit lalu</td>
+                                <td class="px-5 py-3.5"><span class="bg-emerald-50 text-emerald-700 font-bold px-2 py-0.5 rounded">Sudah Terbit</span></td>
+                                <td class="px-5 py-3.5 text-right">
+                                    <a href="artikel.html" target="_blank" class="text-sky-600 font-bold hover:underline">Lihat Tayang</a>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="px-5 py-3.5 font-bold text-slate-900 max-w-xs truncate">
+                                    Uji Coba Transportasi Drone Logistik di Kepulauan Seribu
+                                </td>
+                                <td class="px-5 py-3.5">Dewi Sartika</td>
+                                <td class="px-5 py-3.5"><span class="bg-emerald-50 text-emerald-700 font-semibold px-2 py-0.5 rounded">Inovasi</span></td>
+                                <td class="px-5 py-3.5 text-slate-400">35 Menit lalu</td>
+                                <td class="px-5 py-3.5"><span class="bg-amber-50 text-amber-700 font-bold px-2 py-0.5 rounded">Menunggu Review</span></td>
+                                <td class="px-5 py-3.5 text-right space-x-2">
+                                    <button onclick="approveArticle(this)" class="px-2.5 py-1 bg-emerald-600 text-white rounded font-bold hover:bg-emerald-500">Approve & Terbitkan</button>
+                                    <button class="px-2.5 py-1 bg-slate-200 text-slate-700 rounded font-semibold hover:bg-slate-300">Edit</button>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="px-5 py-3.5 font-bold text-slate-900 max-w-xs truncate">
+                                    Evaluasi Subsidi Pembelian Kendaraan Ramah Lingkungan
+                                </td>
+                                <td class="px-5 py-3.5">Bambang Irawan</td>
+                                <td class="px-5 py-3.5"><span class="bg-indigo-50 text-indigo-700 font-semibold px-2 py-0.5 rounded">Otomotif</span></td>
+                                <td class="px-5 py-3.5 text-slate-400">1 Jam lalu</td>
+                                <td class="px-5 py-3.5"><span class="bg-sky-50 text-sky-700 font-bold px-2 py-0.5 rounded">Terjadwal (14:00)</span></td>
+                                <td class="px-5 py-3.5 text-right">
+                                    <button class="px-2.5 py-1 bg-slate-200 text-slate-700 rounded font-semibold hover:bg-slate-300">Ubah Jadwal</button>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+        </div>
+
+        <!-- ============================================== -->
+        <!-- TAB 2: FORM TULIS ARTIKEL BARU (EDITOR) -->
+        <!-- ============================================== -->
+        <div id="tab-editor" class="cms-tab-content hidden space-y-6">
+            <div class="bg-white p-6 sm:p-8 rounded-2xl border border-slate-200 shadow-sm space-y-6">
+                
+                <div class="flex items-center justify-between border-b pb-4">
+                    <div>
+                        <h2 class="text-lg font-bold text-slate-900">Formulir Penulisan Berita & Jurnalistik</h2>
+                        <p class="text-xs text-slate-500">Mendukung format berita teks, infografis, photo story, dan live report</p>
+                    </div>
+                    <div class="flex items-center gap-2">
+                        <button onclick="saveDraft()" class="px-3.5 py-2 rounded-xl bg-slate-100 hover:bg-slate-200 text-slate-700 text-xs font-bold transition">
+                            Simpan Draft
+                        </button>
+                        <button onclick="publishArticle()" class="px-4 py-2 rounded-xl bg-sky-600 hover:bg-sky-500 text-white text-xs font-bold transition shadow">
+                            Kirim & Terbitkan &rarr;
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Judul & Dek -->
+                <div class="space-y-4">
+                    <div>
+                        <label class="block text-xs font-bold text-slate-700 uppercase mb-1">Judul Utama Berita (Headline) *</label>
+                        <input type="text" id="editor-title" placeholder="Ketik judul berita yang menarik, faktual, dan SEO-friendly..." value="Pusat Data AI Terbesar Nusantara Resmi Beroperasi: Lompatan Besar Kedaulatan Komputasi Indonesia" class="w-full text-sm p-3 rounded-xl border border-slate-300 focus:outline-none focus:ring-2 focus:ring-sky-500 font-semibold text-slate-900">
+                    </div>
+
+                    <div>
+                        <label class="block text-xs font-bold text-slate-700 uppercase mb-1">Sub-Judul / Dek Artikel</label>
+                        <input type="text" placeholder="Ringkasan 1 kalimat yang memperjelas sudut pandang berita..." value="Fasilitas superkomputer ramah lingkungan berkapasitas 500 PFLOPS siap menopang riset kecerdasan buatan nasional." class="w-full text-xs p-3 rounded-xl border border-slate-300 focus:outline-none focus:ring-2 focus:ring-sky-500 text-slate-700">
+                    </div>
+                </div>
+
+                <!-- Meta Kolom: Kanal, Tags, Penulis -->
+                <div class="grid grid-cols-1 sm:grid-cols-3 gap-4 text-xs">
+                    <div>
+                        <label class="block font-bold text-slate-700 uppercase mb-1">Kanal Berita</label>
+                        <select class="w-full p-2.5 rounded-xl border border-slate-300 bg-white font-semibold">
+                            <option>Teknologi</option>
+                            <option>Nasional</option>
+                            <option>Bisnis & Finansial</option>
+                            <option>Bola & Olahraga</option>
+                            <option>Otomotif</option>
+                            <option>Gaya Hidup</option>
+                        </select>
+                    </div>
+                    <div>
+                        <label class="block font-bold text-slate-700 uppercase mb-1">Tipe Liputan</label>
+                        <select class="w-full p-2.5 rounded-xl border border-slate-300 bg-white font-semibold">
+                            <option>Laporan Khusus (Feature)</option>
+                            <option>Berita Kilat (Breaking News)</option>
+                            <option>Cek Fakta (Anti-Hoaks)</option>
+                            <option>Opini / Kolom Pakar</option>
+                        </select>
+                    </div>
+                    <div>
+                        <label class="block font-bold text-slate-700 uppercase mb-1">Slug URL Otomatis</label>
+                        <input type="text" readonly value="/teknologi/pusat-data-ai-terbesar-nusantara" class="w-full p-2.5 rounded-xl border border-slate-200 bg-slate-50 font-mono text-[11px] text-slate-500">
+                    </div>
+                </div>
+
+                <!-- Upload Media & Auto Watermark Preview -->
+                <div class="p-4 bg-slate-50 rounded-2xl border border-slate-200 space-y-3">
+                    <div class="flex items-center justify-between">
+                        <label class="text-xs font-bold text-slate-700 uppercase">Foto Utama Berita & Media Assets Engine</label>
+                        <span class="text-[10px] text-sky-600 font-bold bg-sky-50 px-2 py-0.5 rounded border border-sky-200">
+                            Fitur Otomatis: WebP Convert + Watermark Logo
+                        </span>
+                    </div>
+
+                    <div class="flex flex-col sm:flex-row items-center gap-4">
+                        <div class="w-36 h-24 rounded-xl overflow-hidden bg-slate-900 relative flex-shrink-0 border border-slate-300">
+                            <img src="https://images.unsplash.com/photo-1558494949-ef010cbdcc31?auto=format&fit=crop&w=400&q=80" alt="Preview" class="w-full h-full object-cover">
+                            <span class="absolute bottom-1 right-1 bg-black/70 text-white text-[8px] font-mono px-1 rounded">iCraftDS &copy;</span>
+                        </div>
+                        <div class="text-xs text-slate-600 flex-1 space-y-1">
+                            <p class="font-bold text-slate-800">server_rack_ai_datacenter.jpg</p>
+                            <p class="text-[11px] text-slate-500">Ukuran asli: 3.4 MB &rarr; Terkompresi otomatis menjadi <strong>185 KB (.webp)</strong></p>
+                            <p class="text-[11px] text-emerald-600 font-semibold">&#10003; Watermark logo & hak cipta terpasang di pojok kanan bawah.</p>
+                            <button class="mt-1 px-3 py-1 bg-white border border-slate-300 hover:bg-slate-50 rounded-lg text-[11px] font-bold text-slate-700">
+                                Ganti Gambar Berita
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- WYSIWYG Editor Mockup -->
+                <div class="space-y-2">
+                    <label class="block text-xs font-bold text-slate-700 uppercase">Isi Konten Artikel</label>
+                    
+                    <!-- Editor Toolbar -->
+                    <div class="flex flex-wrap items-center gap-1 p-2 bg-slate-100 rounded-t-xl border border-slate-300 text-xs">
+                        <button class="p-1.5 hover:bg-white rounded font-bold">B</button>
+                        <button class="p-1.5 hover:bg-white rounded italic">I</button>
+                        <button class="p-1.5 hover:bg-white rounded underline">U</button>
+                        <span class="text-slate-300">|</span>
+                        <button class="px-2 py-1 hover:bg-white rounded font-bold">H2</button>
+                        <button class="px-2 py-1 hover:bg-white rounded font-bold">H3</button>
+                        <span class="text-slate-300">|</span>
+                        <button class="p-1.5 hover:bg-white rounded">Kutipan &ldquo;&rdquo;</button>
+                        <button class="p-1.5 hover:bg-white rounded">Sisip Link</button>
+                        <button class="p-1.5 hover:bg-white rounded">Embed Tweet/Video</button>
+                        <span class="text-slate-300">|</span>
+                        <span class="text-[10px] text-slate-500 ml-auto font-mono">1.120 Kata &bull; 4 Menit Baca</span>
+                    </div>
+
+                    <textarea rows="10" class="w-full text-xs p-4 rounded-b-xl border border-slate-300 border-t-0 focus:outline-none focus:ring-2 focus:ring-sky-500 font-serif leading-relaxed text-slate-800">JAKARTA, iCraftDS — Pemerintah secara resmi meresmikan pengoperasian fasilitas Pusat Data Kecerdasan Buatan (AI) Nasional skala superkomputer pertama di Indonesia pada Selasa (13/10/2026). Pembangunan infrastruktur strategis ini diharapkan menjadi pilar utama kedaulatan data dan kemandirian teknologi nasional di era komputasi mutakhir.
+
+Fasilitas yang berlokasi di kawasan koridor teknologi Jawa Barat tersebut mengusung daya komputasi hingga 500 Petaflops (PFLOPS) dengan dukungan puluhan ribu unit akselerator grafis generasi terbaru...</textarea>
+                </div>
+
+            </div>
+        </div>
+
+        <!-- ============================================== -->
+        <!-- TAB 3: MANAJEMEN IKLAN (ADS MANAGER) -->
+        <!-- ============================================== -->
+        <div id="tab-ads" class="cms-tab-content hidden space-y-6">
+            <div class="bg-white p-6 rounded-2xl border border-slate-200 shadow-sm space-y-6">
+                <div class="flex items-center justify-between border-b pb-4">
+                    <div>
+                        <h2 class="text-lg font-bold text-slate-900">Manajemen Penempatan Banner Iklan</h2>
+                        <p class="text-xs text-slate-500">Atur kampanye pengiklan direct sponsor dan jaringan Google AdSense</p>
+                    </div>
+                    <button onclick="showToast('Slot iklan baru ditambahkan')" class="px-3.5 py-2 bg-sky-600 text-white rounded-xl text-xs font-bold">+ Pasang Slot Baru</button>
+                </div>
+
+                <div class="space-y-4 text-xs">
+                    
+                    <!-- Slot 1 -->
+                    <div class="flex flex-col sm:flex-row sm:items-center justify-between p-4 bg-slate-50 rounded-xl border border-slate-200 gap-4">
+                        <div>
+                            <div class="flex items-center gap-2 mb-1">
+                                <span class="bg-emerald-100 text-emerald-800 font-bold px-2 py-0.5 rounded text-[10px]">Aktif</span>
+                                <strong class="text-slate-900 text-sm">Top Leaderboard Header (728x90)</strong>
+                            </div>
+                            <p class="text-slate-500">Posisi: Bagian paling atas di samping logo portal &bull; Impresi: <strong>142.000 / hari</strong></p>
+                        </div>
+                        <div class="flex items-center gap-3">
+                            <span class="text-slate-700 font-mono font-bold">CTR: 2.14%</span>
+                            <button class="px-3 py-1.5 bg-white border border-slate-300 rounded-lg font-bold text-slate-700 hover:bg-slate-100">Ubah Banner</button>
+                        </div>
+                    </div>
+
+                    <!-- Slot 2 -->
+                    <div class="flex flex-col sm:flex-row sm:items-center justify-between p-4 bg-slate-50 rounded-xl border border-slate-200 gap-4">
+                        <div>
+                            <div class="flex items-center gap-2 mb-1">
+                                <span class="bg-emerald-100 text-emerald-800 font-bold px-2 py-0.5 rounded text-[10px]">Aktif</span>
+                                <strong class="text-slate-900 text-sm">In-Article Content Ad (336x280)</strong>
+                            </div>
+                            <p class="text-slate-500">Posisi: Paragraf ke-3 di dalam artikel &bull; Impresi: <strong>210.000 / hari</strong></p>
+                        </div>
+                        <div class="flex items-center gap-3">
+                            <span class="text-slate-700 font-mono font-bold">CTR: 4.80%</span>
+                            <button class="px-3 py-1.5 bg-white border border-slate-300 rounded-lg font-bold text-slate-700 hover:bg-slate-100">Ubah Banner</button>
+                        </div>
+                    </div>
+
+                    <!-- Slot 3 -->
+                    <div class="flex flex-col sm:flex-row sm:items-center justify-between p-4 bg-slate-50 rounded-xl border border-slate-200 gap-4">
+                        <div>
+                            <div class="flex items-center gap-2 mb-1">
+                                <span class="bg-emerald-100 text-emerald-800 font-bold px-2 py-0.5 rounded text-[10px]">Aktif</span>
+                                <strong class="text-slate-900 text-sm">Sidebar Sticky Rectangle (300x600)</strong>
+                            </div>
+                            <p class="text-slate-500">Posisi: Kolom kanan desktop &bull; Impresi: <strong>95.000 / hari</strong></p>
+                        </div>
+                        <div class="flex items-center gap-3">
+                            <span class="text-slate-700 font-mono font-bold">CTR: 1.95%</span>
+                            <button class="px-3 py-1.5 bg-white border border-slate-300 rounded-lg font-bold text-slate-700 hover:bg-slate-100">Ubah Banner</button>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+
+    </main>
+
+    <!-- CMS JS Script -->
+    <script>
+        function switchCmsTab(tabId) {
+            // Hide all tab contents
+            document.querySelectorAll('.cms-tab-content').forEach(el => el.classList.add('hidden'));
+            
+            // Remove active classes on nav
+            document.querySelectorAll('.cms-nav-btn').forEach(btn => {
+                btn.classList.remove('bg-sky-600', 'text-white');
+                btn.classList.add('text-slate-400');
+            });
+
+            // Activate specific tab
+            const target = document.getElementById('tab-' + tabId);
+            if (target) target.classList.remove('hidden');
+
+            const activeBtn = document.getElementById('nav-' + tabId);
+            if (activeBtn) {
+                activeBtn.classList.add('bg-sky-600', 'text-white');
+                activeBtn.classList.remove('text-slate-400');
+            }
+
+            // Update title
+            const titleEl = document.getElementById('cms-page-title');
+            const descEl = document.getElementById('cms-page-desc');
+            if (tabId === 'dashboard') {
+                titleEl.textContent = 'Dashboard Redaksi & Analisis Pembaca';
+                descEl.textContent = 'Pantau statistik real-time pembaca, alur revisi artikel reporter, dan performa kanal berita.';
+            } else if (tabId === 'editor') {
+                titleEl.textContent = 'Editor Artikel & Penerbitan';
+                descEl.textContent = 'Formulir jurnalisme terintegrasi dengan auto-compress WebP dan watermark hak cipta.';
+            } else if (tabId === 'ads') {
+                titleEl.textContent = 'Manajemen Banner Iklan & Monetisasi';
+                descEl.textContent = 'Atur slot iklan komersial direct sponsor dan integrasi Google AdSense.';
+            } else {
+                titleEl.textContent = 'Manajemen Konten & Tim Redaksi';
+                descEl.textContent = 'Kelola hak akses jurnalis dan arsip berita terbit.';
+            }
+        }
+
+        function approveArticle(btn) {
+            btn.parentElement.innerHTML = '<span class="text-emerald-600 font-bold">&#10003; Berhasil Diterbitkan</span>';
+            showToast('Artikel berhasil disetujui & tayang di portal pembaca!');
+        }
+
+        function saveDraft() {
+            showToast('Draft artikel tersimpan secara lokal!');
+        }
+
+        function publishArticle() {
+            showToast('Artikel berhasil diterbitkan ke halaman utama!');
+            setTimeout(() => {
+                window.location.href = 'artikel.html';
+            }, 1200);
+        }
+
+        function showToast(msg) {
+            let toast = document.getElementById('live-toast');
+            if (!toast) {
+                toast = document.createElement('div');
+                toast.id = 'live-toast';
+                toast.className = 'fixed bottom-6 right-6 z-50 bg-slate-900 text-white text-xs font-semibold px-4 py-2.5 rounded-xl shadow-2xl border border-slate-700 flex items-center gap-2 transform transition-all duration-300';
+                document.body.appendChild(toast);
+            }
+            toast.textContent = msg;
+            toast.style.display = 'block';
+            setTimeout(() => { toast.style.display = 'none'; }, 2500);
+        }
+    </script>
+</body>
+</html>
